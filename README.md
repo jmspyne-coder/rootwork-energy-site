@@ -32,8 +32,20 @@ npm run build && npm start
 **Change the email everywhere:** one line in `app/site-config.js` (`EMAIL`).
 **Edit capability text/photos:** the `CAPABILITIES` array in `app/site-config.js`.
 
-## Deploy (Vercel, via GitHub)
-Push to your repo; Vercel auto-deploys on every commit. To connect the domain:
-add `rootwork.energy` + `www` under **Settings → Domains**, then in Squarespace DNS
-add an **A** record (`@` → `76.76.21.21`) and a **CNAME** (`www` → the value Vercel
-shows). **Leave MX and all TXT records untouched** — those are your email.
+## Deploy — GitHub Pages (free, static)
+
+This site builds to a static export (`output: "export"`) and ships free on GitHub
+Pages. A workflow at `.github/workflows/deploy.yml` builds and deploys on every
+push to `main`.
+
+1. Repo must be **public** (Pages is free on public repos).
+2. **Settings → Pages → Source: GitHub Actions.**
+3. Push to `main` → the workflow builds and deploys automatically.
+4. **Settings → Pages → Custom domain:** `rootwork.energy` (a `public/CNAME`
+   file is already included).
+5. DNS at your registrar (Squarespace): four apex `A` records to GitHub Pages
+   IPs `185.199.108.153`, `185.199.109.153`, `185.199.110.153`,
+   `185.199.111.153`, and a `www` `CNAME` to `<your-username>.github.io`.
+   **Leave MX and all TXT records untouched.**
+
+Also deployable on Vercel/Cloudflare Pages without changes.
