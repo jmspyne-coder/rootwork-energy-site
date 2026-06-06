@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const EMAIL = "james@rootwork.energy";
+const EMAIL = "contact@rootwork.energy";
 
 export default function Home() {
   const year = new Date().getFullYear();
