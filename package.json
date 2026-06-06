@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fontsource/fraunces": "^5.2.9",
+    "@fontsource/hanken-grotesk": "^5.2.8",
     "next": "^15.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

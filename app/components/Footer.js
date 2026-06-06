@@ -7,15 +7,20 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="container footer__inner">
-        <Link href="/" aria-label="Rootwork Energy — home">
-          <Image
-            className="footer__wordmark"
-            src="/wordmark-light.png"
-            alt="Rootwork Energy"
-            width={1009}
-            height={246}
-          />
-        </Link>
+        <div className="footer__brand">
+          <Link href="/" aria-label="Rootwork Energy — home">
+            <Image
+              className="footer__wordmark"
+              src="/wordmark-light.png"
+              alt="Rootwork Energy"
+              width={1009}
+              height={246}
+            />
+          </Link>
+          <p className="footer__tagline">
+            Operator-led independent power producer. Built to recover.
+          </p>
+        </div>
         <div className="footer__right">
           <nav className="footer__links" aria-label="Footer">
             {NAV.map((l) => (

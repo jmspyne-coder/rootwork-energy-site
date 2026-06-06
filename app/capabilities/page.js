@@ -29,9 +29,12 @@ export default function Capabilities() {
           {CAPABILITIES.map((c, i) => (
             <div
               key={c.title}
-              className={`split${i % 2 === 1 ? " split--reverse" : ""}`}
+              className={`split reveal-up${i % 2 === 1 ? " split--reverse" : ""}`}
             >
               <div className="split__text">
+                <span className="cap-index">
+                  {String(i + 1).padStart(2, "0")} / {String(CAPABILITIES.length).padStart(2, "0")}
+                </span>
                 <h2 className="cap-title">{c.title}</h2>
                 <p className="cap-blurb">{c.blurb}</p>
               </div>

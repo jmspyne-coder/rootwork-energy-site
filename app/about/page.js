@@ -28,7 +28,7 @@ export default function About() {
 
       {/* Approach */}
       <section className="band-bone section">
-        <div className="container split">
+        <div className="container split reveal-up">
           <div className="split__text">
             <p className="eyebrow on-light">Our approach</p>
             <p className="lede">
@@ -53,7 +53,7 @@ export default function About() {
 
       {/* Why operator-led */}
       <section className="band-charcoal section">
-        <div className="container split split--reverse">
+        <div className="container split split--reverse reveal-up">
           <div className="split__text">
             <p className="eyebrow on-dark">Why operator-led</p>
             <p className="lede lede--dark">
@@ -70,7 +70,7 @@ export default function About() {
               alt="High-voltage circuit breaker and bushings at an energized substation."
               width={640}
               height={480}
-              className="photo"
+              className="photo photo--ondark"
             />
           </div>
         </div>

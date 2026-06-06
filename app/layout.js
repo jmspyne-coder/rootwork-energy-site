@@ -1,3 +1,12 @@
+// Self-hosted fonts (no external requests)
+import "@fontsource/fraunces/latin-400.css";
+import "@fontsource/fraunces/latin-500.css";
+import "@fontsource/fraunces/latin-600.css";
+import "@fontsource/fraunces/latin-400-italic.css";
+import "@fontsource/hanken-grotesk/latin-400.css";
+import "@fontsource/hanken-grotesk/latin-500.css";
+import "@fontsource/hanken-grotesk/latin-600.css";
+import "@fontsource/hanken-grotesk/latin-700.css";
 import "./globals.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
