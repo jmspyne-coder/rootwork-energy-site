@@ -1,86 +1,39 @@
-# Rootwork Energy — landing page
+# Rootwork Energy — website
 
-Minimal one-page site. Next.js (App Router), no external dependencies beyond
-Next/React. Charcoal base, single logo-green accent, Georgia serif headlines
-over a system sans body.
+Operator-led IPP site. Next.js (App Router), no dependencies beyond Next/React.
+Charcoal base, single logo-green accent, Georgia serif headlines over a system
+sans body. Real field photography, contained for sharpness.
 
----
+## Pages
+- `/` — home (hero, what-we-do, capability teaser, contact)
+- `/about` — company, approach, why operator-led
+- `/capabilities` — offerings across the asset lifecycle, with photos
+- `/contact` — direct contact
 
 ## Run locally
-
 ```bash
 npm install
 npm run dev          # http://localhost:3000
-npm run build && npm start   # production build
+npm run build && npm start
 ```
 
-## What's where
-
+## Where things live
 | File | Purpose |
 |------|---------|
-| `app/page.js` | All page copy + structure (hero, what-we-do, contact, footer) |
-| `app/globals.css` | Design tokens (top of file) + all styling |
-| `app/layout.js` | `<title>`, meta description, Open Graph, theme color |
-| `public/wordmark-light.png` | Transparent wordmark (bone + green) — used on charcoal |
-| `public/wordmark-dark.png` | Transparent wordmark (charcoal + green) — for light backgrounds (not used on this page, kept for reuse) |
-| `app/icon.png`, `app/apple-icon.png` | Favicons |
+| `app/site-config.js` | **Email, nav links, and all capability copy** — edit content here |
+| `app/page.js` | Home page |
+| `app/about/page.js`, `app/capabilities/page.js`, `app/contact/page.js` | Interior pages |
+| `app/components/Nav.js`, `app/components/Footer.js` | Shared nav + footer |
+| `app/globals.css` | Design tokens (top) + all styling |
+| `app/layout.js` | Metadata, Open Graph, wraps nav/footer |
+| `public/photos/` | Site photography |
+| `public/wordmark-light.png` / `wordmark-dark.png` | Transparent wordmarks |
 
-**To edit copy:** open `app/page.js` — it's plain text.
-**To edit colors:** the `:root` block at the top of `app/globals.css`.
+**Change the email everywhere:** one line in `app/site-config.js` (`EMAIL`).
+**Edit capability text/photos:** the `CAPABILITIES` array in `app/site-config.js`.
 
----
-
-## Deploy to Vercel
-
-Pick one path. Git is cleanest for future edits.
-
-### A) Git (recommended)
-1. Create a new repo on GitHub, push this folder.
-2. Vercel → **Add New… → Project** → import the repo.
-3. Framework auto-detects as **Next.js**. Leave defaults. **Deploy.**
-
-### B) Vercel CLI (no Git)
-```bash
-npm i -g vercel
-vercel          # follow prompts, links/creates the project
-vercel --prod   # promote to production
-```
-
-You'll get a `*.vercel.app` URL immediately. Add the custom domain next.
-
----
-
-## Connect rootwork.energy (without touching mail)
-
-In **Vercel → Project → Settings → Domains**, add both:
-- `rootwork.energy`
-- `www.rootwork.energy`
-
-Set `rootwork.energy` as the primary; Vercel will offer to redirect `www` → apex.
-
-Vercel then shows the exact DNS records to add. Add them wherever you manage
-DNS for the domain (the Squarespace domains dashboard, since it's the back-end
-registrar). They are typically:
-
-| Type | Host / Name | Value |
-|------|-------------|-------|
-| `A` | `@` (apex) | `76.76.21.21` |
-| `CNAME` | `www` | `cname.vercel-dns.com` |
-
-> Use whatever Vercel displays if it differs — it's authoritative.
-
-### Do NOT change these
-- **MX records** (Google Workspace mail) — leave every one untouched.
-- Any **TXT** records: SPF (`v=spf1…`), DKIM, DMARC, and the Google site/domain
-  verification TXT. These are all mail/verification — don't delete or edit them.
-
-You're only **adding** one `A` and one `CNAME`. Everything else stays as-is.
-DNS propagation is usually minutes, occasionally up to a few hours. Vercel
-issues the HTTPS certificate automatically once records resolve.
-
----
-
-## Separate, time-sensitive
-There's a domain **registrant contact verification** deadline (~June 11) to
-avoid suspension. That's handled in the registrar/Workspace contact settings —
-unrelated to this deploy, but worth clearing this week regardless.
+## Deploy (Vercel, via GitHub)
+Push to your repo; Vercel auto-deploys on every commit. To connect the domain:
+add `rootwork.energy` + `www` under **Settings → Domains**, then in Squarespace DNS
+add an **A** record (`@` → `76.76.21.21`) and a **CNAME** (`www` → the value Vercel
+shows). **Leave MX and all TXT records untouched** — those are your email.

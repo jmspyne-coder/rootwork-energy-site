@@ -1,8 +1,13 @@
 import "./globals.css";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 export const metadata = {
   metadataBase: new URL("https://rootwork.energy"),
-  title: "Rootwork Energy — Operator-led. Built to recover.",
+  title: {
+    default: "Rootwork Energy — Operator-led. Built to recover.",
+    template: "%s — Rootwork Energy",
+  },
   description:
     "Rootwork Energy is an operator-led independent power producer that acquires underperforming, interconnection-capable assets, recovers their performance, and holds them for the long term.",
   openGraph: {
@@ -25,7 +30,11 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Nav />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
