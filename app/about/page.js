@@ -11,7 +11,10 @@ export default function About() {
   return (
     <main>
       {/* Page hero */}
-      <section className="band-charcoal page-hero">
+      <section
+        className="page-hero page-hero--photo"
+        style={{ backgroundImage: "url(/photos/fleet-winter.jpg)" }}
+      >
         <div className="container">
           <p className="eyebrow on-dark">About</p>
           <h1 className="page-title">Built by operators, for the long term.</h1>

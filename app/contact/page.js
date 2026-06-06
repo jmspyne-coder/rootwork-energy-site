@@ -9,7 +9,10 @@ export const metadata = {
 export default function Contact() {
   return (
     <main>
-      <section className="band-charcoal page-hero page-hero--tall">
+      <section
+        className="page-hero page-hero--tall page-hero--photo"
+        style={{ backgroundImage: "url(/photos/substation-yard.jpg)" }}
+      >
         <div className="container">
           <p className="eyebrow on-dark">Contact</p>
           <h1 className="page-title">Let&rsquo;s talk.</h1>

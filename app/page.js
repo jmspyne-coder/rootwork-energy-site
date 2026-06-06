@@ -7,7 +7,10 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="band-charcoal hero">
+      <section
+        className="hero hero--photo"
+        style={{ backgroundImage: "url(/photos/bess-array.jpg)" }}
+      >
         <div className="container">
           <Image
             className="hero__wordmark reveal d1"
@@ -47,10 +50,10 @@ export default function Home() {
           </div>
           <div className="split__media">
             <Image
-              src="/photos/bess-array.jpg"
-              alt="Rows of utility-scale battery energy storage enclosures on a gravel site."
+              src="/photos/battery-modules.jpg"
+              alt="Battery module rack with cooling fans inside a storage enclosure."
               width={640}
-              height={480}
+              height={431}
               className="photo"
             />
           </div>
