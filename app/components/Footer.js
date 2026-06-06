@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer__inner">
         <div className="footer__brand">
-          <Link href="/" aria-label="Rootwork Energy — home">
+          <Link href="/" aria-label="Rootwork Energy home">
             <Image
               className="footer__wordmark"
               src="/wordmark-light.png"

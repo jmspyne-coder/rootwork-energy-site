@@ -6,7 +6,7 @@ export default function Nav() {
   return (
     <header className="nav">
       <div className="container nav__inner">
-        <Link href="/" className="nav__brand" aria-label="Rootwork Energy — home">
+        <Link href="/" className="nav__brand" aria-label="Rootwork Energy home">
           <Image
             src="/wordmark-light.png"
             alt="Rootwork Energy"

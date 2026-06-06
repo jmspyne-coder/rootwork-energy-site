@@ -1,4 +1,9 @@
 // Single source of truth for shared content.
+
+// Google Analytics 4 Measurement ID (looks like "G-XXXXXXXXXX").
+// Leave as "" to disable analytics. Paste your ID here to turn it on.
+export const GA_ID = "";
+
 export const EMAIL = "contact@rootwork.energy";
 
 export const NAV = [
@@ -32,7 +37,7 @@ export const CAPABILITIES = [
   {
     title: "Commissioning & energization",
     blurb:
-      "We bring systems online and up to full operation — testing, integration, and a clean handover into commercial service.",
+      "We bring systems online and up to full operation, with testing, integration, and a clean handover into commercial service.",
     img: "/photos/substation-breaker.jpg",
     alt: "High-voltage circuit breaker and bushings at an energized substation.",
   },

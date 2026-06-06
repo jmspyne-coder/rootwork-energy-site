@@ -8,14 +8,16 @@ import "@fontsource/hanken-grotesk/latin-500.css";
 import "@fontsource/hanken-grotesk/latin-600.css";
 import "@fontsource/hanken-grotesk/latin-700.css";
 import "./globals.css";
+import Script from "next/script";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import { GA_ID } from "./site-config";
 
 export const metadata = {
   metadataBase: new URL("https://rootwork.energy"),
   title: {
-    default: "Rootwork Energy — Operator-led. Built to recover.",
-    template: "%s — Rootwork Energy",
+    default: "Rootwork Energy · Operator-led. Built to recover.",
+    template: "%s · Rootwork Energy",
   },
   description:
     "Rootwork Energy is an operator-led independent power producer that acquires underperforming, interconnection-capable assets, recovers their performance, and holds them for the long term.",
@@ -40,6 +42,43 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        {/* Branded duotone filter for body imagery */}
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          width="0"
+          height="0"
+          style={{ position: "absolute", width: 0, height: 0 }}
+        >
+          <filter id="rw-duotone" colorInterpolationFilters="sRGB">
+            <feColorMatrix
+              type="matrix"
+              values="0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0 0 0 1 0"
+            />
+            <feComponentTransfer>
+              <feFuncR type="table" tableValues="0.12 0.93" />
+              <feFuncG type="table" tableValues="0.14 0.92" />
+              <feFuncB type="table" tableValues="0.11 0.86" />
+            </feComponentTransfer>
+          </filter>
+        </svg>
+
+        {GA_ID ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}');
+              `}
+            </Script>
+          </>
+        ) : null}
         <Nav />
         {children}
         <Footer />
