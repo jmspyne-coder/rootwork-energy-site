@@ -10,6 +10,7 @@ import "@fontsource/hanken-grotesk/latin-700.css";
 import "./globals.css";
 import Script from "next/script";
 import Nav from "./components/Nav";
+import Reveal from "./components/Reveal";
 import Footer from "./components/Footer";
 import { GA_ID } from "./site-config";
 
@@ -42,6 +43,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('rw-js')",
+          }}
+        />
         {/* Branded duotone filter for body imagery */}
         <svg
           aria-hidden="true"
@@ -82,6 +88,7 @@ export default function RootLayout({ children }) {
         <Nav />
         {children}
         <Footer />
+        <Reveal />
       </body>
     </html>
   );

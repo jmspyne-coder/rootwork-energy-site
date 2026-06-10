@@ -9,8 +9,18 @@ export const EMAIL = "contact@rootwork.energy";
 export const NAV = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/capabilities", label: "Capabilities" },
+  { href: "/why-rootwork", label: "Why Rootwork" },
   { href: "/contact", label: "Contact" },
+];
+
+export const FOOTER_NAV = [
+  ...[
+    { href: "/about", label: "About" },
+    { href: "/services", label: "Services" },
+    { href: "/why-rootwork", label: "Why Rootwork" },
+    { href: "/investors", label: "Investors" },
+    { href: "/contact", label: "Contact" },
+  ],
 ];
 
 export const CAPABILITIES = [
