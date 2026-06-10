@@ -11,10 +11,10 @@ export default function Footer() {
           <Link href="/" aria-label="Rootwork Energy home">
             <Image
               className="footer__wordmark"
-              src="/wordmark-light.png"
+              src="/wordmark-light-hd.png"
               alt="Rootwork Energy"
-              width={1009}
-              height={246}
+              width={2754}
+              height={594}
             />
           </Link>
           <p className="footer__tagline">
