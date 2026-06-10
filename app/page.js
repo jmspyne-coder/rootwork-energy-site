@@ -3,10 +3,10 @@ import Link from "next/link";
 import { EMAIL, CAPABILITIES } from "./site-config";
 
 const MODEL = [
-  { n: "01", t: "Acquire", b: "Underperforming, interconnection-capable assets at distressed valuations." },
-  { n: "02", t: "Recover", b: "Hands-on repower execution to restore output and availability." },
-  { n: "03", t: "Operate", b: "Disciplined operations and active performance management." },
-  { n: "04", t: "Hold", b: "Long-term ownership, not a quick resale." },
+  { n: "01", t: "Commission", b: "Systems brought online and into commercial service: testing, integration, clean handover." },
+  { n: "02", t: "Recover", b: "Hands-on recovery to restore output and availability on systems running below their potential." },
+  { n: "03", t: "Operate", b: "Disciplined operations and active performance management, season over season." },
+  { n: "04", t: "Control", b: "Controls and energy management so assets dispatch reliably and deliver what they are contracted to deliver." },
 ];
 
 export default function Home() {
@@ -20,14 +20,14 @@ export default function Home() {
           style={{ backgroundImage: "url(/photos/fleet-winter.jpg)" }}
         />
         <div className="container">
-          <p className="overline on-dark reveal d1">Independent Power Producer</p>
+          <p className="overline on-dark reveal d1">Commissioning · Operations · Recovery</p>
           <h1 className="hero__tagline reveal d2">
             Operator-led. Built to <em>recover</em>.
           </h1>
           <p className="hero__thesis reveal d3">
-            We acquire underperforming, interconnection-capable assets, recover
-            their performance through hands-on execution, and hold them for the
-            long term.
+            We commission, operate, and recover utility-scale storage and
+            renewables. The hands-on execution that decides whether an asset
+            delivers what its model promised.
           </p>
           <div className="hero-meta reveal d4">
             <div className="hero-meta__item">
@@ -39,8 +39,8 @@ export default function Home() {
               <span className="hero-meta__value">CAISO + ERCOT</span>
             </div>
             <div className="hero-meta__item">
-              <span className="hero-meta__label">Model</span>
-              <span className="hero-meta__value">Acquire · Recover · Hold</span>
+              <span className="hero-meta__label">Scope</span>
+              <span className="hero-meta__value">Commission · Operate · Recover</span>
             </div>
           </div>
         </div>
@@ -49,7 +49,7 @@ export default function Home() {
       {/* Model */}
       <section className="model section">
         <div className="container">
-          <p className="eyebrow on-dark">How we create value</p>
+          <p className="eyebrow on-dark">How we operate</p>
           <div className="model-grid reveal-up">
             {MODEL.map((m) => (
               <div key={m.n} className="model-item">
@@ -78,13 +78,14 @@ export default function Home() {
             <div className="cap-feature__body">
               <p className="eyebrow on-light">What we do</p>
               <p className="lede">
-                Rootwork is an operator-led independent power producer. We identify
-                interconnection-capable assets that are underperforming in CAISO
-                and ERCOT, acquire them at distressed valuations, and restore their
-                output through hands-on repower execution, then operate and hold
-                them for the long term.
+                Rootwork is an operator-led company built around field execution. We
+                commission, operate, and recover utility-scale storage and renewables
+                across CAISO and ERCOT, for the owners and developers who need the
+                work done right. We own and operate assets of our own as well, which
+                is why we run yours the same way: managed to the field reality, not
+                the model.
               </p>
-              <Link href="/capabilities" className="textlink on-light">
+              <Link href="/services" className="textlink on-light">
                 See what we do →
               </Link>
             </div>
@@ -111,7 +112,8 @@ export default function Home() {
         <div className="container reveal-up">
           <p className="eyebrow on-light">Get in touch</p>
           <p className="lede" style={{ marginBottom: "1.6rem" }}>
-            For asset, partnership, and investment inquiries.
+            For owners and developers who need execution in the field, and for
+            partnership and investment inquiries.
           </p>
           <a className="contact__email contact__email--light" href={`mailto:${EMAIL}`}>
             {EMAIL}
