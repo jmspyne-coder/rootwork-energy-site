@@ -1,125 +1,110 @@
-import Image from "next/image";
 import Link from "next/link";
-import { EMAIL, CAPABILITIES } from "./site-config";
+import { EMAIL } from "./site-config";
 
-const MODEL = [
-  { n: "01", t: "Commission", b: "Systems brought online and into commercial service: testing, integration, clean handover." },
-  { n: "02", t: "Recover", b: "Hands-on recovery to restore output and availability on systems running below their potential." },
-  { n: "03", t: "Operate", b: "Disciplined operations and active performance management, season over season." },
-  { n: "04", t: "Control", b: "Controls and energy management so assets dispatch reliably and deliver what they are contracted to deliver." },
+const DO = [
+  { t: "Commissioning & energization", b: "Systems brought online and into commercial service: testing, integration, and a clean handover." },
+  { t: "Operations & maintenance", b: "Preventive and corrective maintenance with active performance management to hold availability through every season." },
+  { t: "Controls & energy management", b: "Controls and EMS configured and optimized so assets dispatch reliably and deliver what they are contracted to deliver." },
+  { t: "Performance recovery", b: "Diagnose and restore output on systems running below their potential, including assets others have written off." },
 ];
 
 export default function Home() {
-  const teaser = CAPABILITIES.slice(0, 6);
   return (
     <main>
-      {/* Hero */}
-      <section className="hero hero--photo">
-        <div
-          className="hero__media"
-          style={{ backgroundImage: "url(/photos/fleet-winter.jpg)" }}
-        />
-        <div className="container">
-          <p className="overline on-dark reveal d1">Commissioning · Operations · Recovery</p>
-          <h1 className="hero__tagline reveal d2">
-            Operator-led. Built to <em>recover</em>.
-          </h1>
-          <p className="hero__thesis reveal d3">
-            We commission, operate, and recover utility-scale storage and
-            renewables. The hands-on execution that decides whether an asset
-            delivers what its model promised.
-          </p>
-          <div className="hero-meta reveal d4">
-            <div className="hero-meta__item">
-              <span className="hero-meta__label">Focus</span>
-              <span className="hero-meta__value">Utility-scale storage &amp; renewables</span>
-            </div>
-            <div className="hero-meta__item">
-              <span className="hero-meta__label">Markets</span>
-              <span className="hero-meta__value">CAISO + ERCOT</span>
-            </div>
-            <div className="hero-meta__item">
-              <span className="hero-meta__label">Scope</span>
-              <span className="hero-meta__value">Commission · Operate · Recover</span>
+      {/* HERO */}
+      <section className="rw-hero">
+        <div className="rw-hero__grid container">
+          <div className="rw-hero__lead">
+            <p className="rw-kicker rw-reveal rw-d1">Commissioning · Operations · Recovery</p>
+            <h1 className="rw-display rw-reveal rw-d2">
+              Operator-led.<br />Built to <em>recover</em>.
+            </h1>
+            <p className="rw-hero__thesis rw-reveal rw-d3">
+              The distance between a model and a megawatt is execution. We commission,
+              operate, and recover utility-scale storage and renewables across CAISO
+              and ERCOT, and run them like the field reality is the only thing that
+              matters.
+            </p>
+            <div className="rw-actions rw-reveal rw-d4">
+              <Link className="rw-btn" href="/services">What we do</Link>
+              <Link className="rw-btn rw-btn--ghost" href="/why-rootwork">Why Rootwork</Link>
             </div>
           </div>
+
+          <aside className="rw-hero__data rw-reveal rw-d4">
+            <div className="rw-dispatch">
+              <svg viewBox="0 0 520 360" role="img" aria-label="Stated dispatch versus actual field dispatch">
+                <defs>
+                  <linearGradient id="rwGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#88B06C" stopOpacity="0.30" />
+                    <stop offset="100%" stopColor="#88B06C" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                {/* model (proforma) line */}
+                <path className="rw-dispatch__model" d="M16 196 L504 120" />
+                {/* fill under actual */}
+                <path className="rw-dispatch__fill" d="M16 196 C70 184 104 188 150 214 C196 240 220 300 266 296 C312 292 330 232 380 244 C430 256 462 196 504 188 L504 340 L16 340 Z" />
+                {/* actual field dispatch */}
+                <path className="rw-dispatch__actual" d="M16 196 C70 184 104 188 150 214 C196 240 220 300 266 296 C312 292 330 232 380 244 C430 256 462 196 504 188" />
+                <circle className="rw-dispatch__dot" cx="266" cy="296" r="4" style={{ animationDelay: "2.4s" }} />
+                <circle className="rw-dispatch__dot" cx="504" cy="188" r="4" style={{ animationDelay: "2.9s" }} />
+                <text className="rw-dispatch__label" x="430" y="108" fill="rgba(236,233,225,0.5)">MODEL</text>
+                <text className="rw-dispatch__label" x="120" y="332" fill="#88B06C">FIELD</text>
+              </svg>
+            </div>
+            <dl className="rw-readouts">
+              <div><dt>Markets</dt><dd>CAISO · ERCOT</dd></div>
+              <div><dt>Field</dt><dd>10+ years</dd></div>
+              <div><dt>Scope</dt><dd>Full lifecycle</dd></div>
+            </dl>
+          </aside>
         </div>
       </section>
 
-      {/* Model */}
-      <section className="model section">
+      {/* STATEMENT */}
+      <section className="rw-statement">
         <div className="container">
-          <p className="eyebrow on-dark">How we operate</p>
-          <div className="model-grid reveal-up">
-            {MODEL.map((m) => (
-              <div key={m.n} className="model-item">
-                <span className="model-num">{m.n}</span>
-                <h3 className="model-title">{m.t}</h3>
-                <p className="model-blurb">{m.b}</p>
-              </div>
+          <p className="rw-statement__eyebrow rw-reveal">The thesis</p>
+          <p className="rw-statement__text rw-reveal rw-d1">
+            The gap between the proforma and the megawatt is <span className="hl">execution</span>.
+          </p>
+          <p className="rw-statement__sub rw-reveal rw-d2">
+            Models promise output. Assets deliver it only when someone commissions the
+            system correctly, holds availability through every season, and chases the
+            warranty scope no one else will. That work is what we do.
+          </p>
+        </div>
+      </section>
+
+      {/* WHAT WE DO */}
+      <section className="rw-do">
+        <div className="container">
+          <div className="rw-do__head rw-reveal">
+            <h2 className="rw-do__title">What operator-led <em>looks like</em>.</h2>
+            <Link href="/services" className="textlink on-light">All services →</Link>
+          </div>
+          <div className="rw-grid2 rw-reveal rw-d1">
+            {DO.map((c) => (
+              <article key={c.t} className="rw-cell">
+                <span className="rw-cell__tick" />
+                <h3 className="rw-cell__t">{c.t}</h3>
+                <p className="rw-cell__b">{c.b}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* What we do */}
-      <section className="band-bone section">
+      {/* CTA */}
+      <section className="rw-cta">
         <div className="container">
-          <article className="cap-feature cap-feature--reverse reveal-up">
-            <div className="cap-feature__media">
-              <Image
-                src="/photos/battery-modules.jpg"
-                alt="Battery module rack with cooling fans inside a storage enclosure."
-                fill
-                sizes="(max-width: 768px) 100vw, 55vw"
-                className="cap-img"
-              />
-            </div>
-            <div className="cap-feature__body">
-              <p className="eyebrow on-light">What we do</p>
-              <p className="lede">
-                Rootwork is an operator-led company built around field execution. We
-                commission, operate, and recover utility-scale storage and renewables
-                across CAISO and ERCOT, for the owners and developers who need the
-                work done right. We own and operate assets of our own as well, which
-                is why we run yours the same way: managed to the field reality, not
-                the model.
-              </p>
-              <Link href="/services" className="textlink on-light">
-                See what we do →
-              </Link>
-            </div>
-          </article>
+          <div className="rw-cta__row rw-reveal">
+            <h2 className="rw-cta__title">Talk to an operator.</h2>
+            <a className="rw-cta__mail" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+          </div>
         </div>
       </section>
 
-      {/* Capabilities teaser */}
-      <section className="band-charcoal section">
-        <div className="container reveal-up">
-          <p className="eyebrow on-dark">Across the asset lifecycle</p>
-          <h2 className="section-title">Operator-led means we do the work <em>ourselves</em>.</h2>
-          <ul className="teaser-grid">
-            {teaser.map((c) => (
-              <li key={c.title} className="teaser-item">{c.title}</li>
-            ))}
-          </ul>
-          <Link href="/capabilities" className="textlink on-dark">All capabilities →</Link>
-        </div>
-      </section>
-
-      {/* Contact CTA */}
-      <section className="band-bone section">
-        <div className="container reveal-up">
-          <p className="eyebrow on-light">Get in touch</p>
-          <p className="lede" style={{ marginBottom: "1.6rem" }}>
-            For owners and developers who need execution in the field, and for
-            partnership and investment inquiries.
-          </p>
-          <a className="contact__email contact__email--light" href={`mailto:${EMAIL}`}>
-            {EMAIL}
-          </a>
-        </div>
-      </section>
     </main>
   );
 }

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { EMAIL, NAV } from "../site-config";
+import { EMAIL, FOOTER_NAV } from "../site-config";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -23,7 +23,7 @@ export default function Footer() {
         </div>
         <div className="footer__right">
           <nav className="footer__links" aria-label="Footer">
-            {NAV.map((l) => (
+            {FOOTER_NAV.map((l) => (
               <Link key={l.href} href={l.href} className="footer__link">
                 {l.label}
               </Link>

@@ -8,29 +8,33 @@ export const EMAIL = "contact@rootwork.energy";
 
 export const NAV = [
   { href: "/about", label: "About" },
-  { href: "/capabilities", label: "Capabilities" },
+  { href: "/services", label: "Services" },
+  { href: "/why-rootwork", label: "Why Rootwork" },
   { href: "/contact", label: "Contact" },
+];
+
+export const FOOTER_NAV = [
+  ...[
+    { href: "/about", label: "About" },
+    { href: "/services", label: "Services" },
+    { href: "/why-rootwork", label: "Why Rootwork" },
+    { href: "/investors", label: "Investors" },
+    { href: "/contact", label: "Contact" },
+  ],
 ];
 
 export const CAPABILITIES = [
   {
-    title: "Asset screening & diligence",
+    title: "Diligence & operational readiness",
     blurb:
-      "We find interconnection-capable assets that are underperforming relative to their potential, then run the technical and commercial diligence to separate recoverable assets from impaired ones.",
+      "Independent technical and commercial review of whether an asset will actually perform against its plan, for owners and developers ahead of build, financing, or handover.",
     img: "/photos/substation-yard.jpg",
     alt: "Grid-connected substation switchyard behind a perimeter fence.",
   },
   {
-    title: "Acquisition",
-    blurb:
-      "We acquire underperforming assets at distressed valuations, with deal structures built for recovery and long-term ownership rather than a quick resale.",
-    img: "/photos/bess-array.jpg",
-    alt: "Rows of utility-scale battery energy storage enclosures on a gravel site.",
-  },
-  {
     title: "Repower & performance recovery",
     blurb:
-      "Hands-on execution to restore output, availability, and value on systems others have written off. This is the core of what operator-led ownership means.",
+      "Hands-on execution to restore output and availability on systems running below their potential, including assets others have written off.",
     img: "/photos/battery-modules.jpg",
     alt: "Battery module rack with cooling fans inside a storage enclosure.",
   },
@@ -44,7 +48,7 @@ export const CAPABILITIES = [
   {
     title: "Operations & maintenance",
     blurb:
-      "Long-term operation backed by disciplined preventive and corrective maintenance, plus active performance management to hold availability over time and through every season.",
+      "Disciplined preventive and corrective maintenance, plus active performance management to hold availability over time and through every season.",
     img: "/photos/fleet-winter.jpg",
     alt: "Energy storage and transformer equipment in a snow-covered field.",
   },

@@ -10,6 +10,7 @@ import "@fontsource/hanken-grotesk/latin-700.css";
 import "./globals.css";
 import Script from "next/script";
 import Nav from "./components/Nav";
+import Reveal from "./components/Reveal";
 import Footer from "./components/Footer";
 import { GA_ID } from "./site-config";
 
@@ -20,11 +21,11 @@ export const metadata = {
     template: "%s · Rootwork Energy",
   },
   description:
-    "Rootwork Energy is an operator-led independent power producer that acquires underperforming, interconnection-capable assets, recovers their performance, and holds them for the long term.",
+    "Rootwork Energy is an operator-led company that commissions, operates, and recovers utility-scale storage and renewables, for the owners and developers who hire us and on the assets we run ourselves.",
   openGraph: {
     title: "Rootwork Energy",
     description:
-      "Operator-led. Built to recover. An independent power producer that recovers underperforming, interconnection-capable assets and holds them for the long term.",
+      "Operator-led. Built to recover. We commission, operate, and recover utility-scale storage and renewables for owners and developers, and run assets of our own.",
     url: "https://rootwork.energy",
     siteName: "Rootwork Energy",
     type: "website",
@@ -42,6 +43,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('rw-js')",
+          }}
+        />
         {/* Branded duotone filter for body imagery */}
         <svg
           aria-hidden="true"
@@ -82,6 +88,7 @@ export default function RootLayout({ children }) {
         <Nav />
         {children}
         <Footer />
+        <Reveal />
       </body>
     </html>
   );
