@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { EMAIL } from "../site-config";
 
 export const metadata = {
@@ -90,6 +91,25 @@ export default function Services() {
             scope no one chases. We have worked in that gap for over a decade and built
             the diagnostics to close it.
           </p>
+        </div>
+      </section>
+
+      <section className="rw-do">
+        <div className="container">
+          <div className="rw-split rw-reveal">
+            <div className="rw-split__media">
+              <Image src="/photos/commissioning-field.jpg" alt="Engineer reviewing commissioning documentation at an energized substation." fill sizes="(max-width:880px) 100vw, 50vw" style={{ objectFit: "cover" }} />
+            </div>
+            <div>
+              <p className="rw-statement__eyebrow" style={{ color: "var(--green)" }}>In the field</p>
+              <h2 className="rw-split__t">Commissioning is where the <em>proforma meets reality</em>.</h2>
+              <p className="lede">
+                We are on site through energization: testing, integration, punchlist,
+                and the handover that decides whether an asset starts its life
+                performing or playing catch-up.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

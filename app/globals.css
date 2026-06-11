@@ -975,3 +975,18 @@ body::after {
   .rw-imageband { grid-template-columns: repeat(2, 1fr); }
   .rw-grid3 { grid-template-columns: 1fr; }
 }
+
+
+/* small-screen display fit — prevents big serif from overflowing/breaking on phones */
+@media (max-width: 430px) {
+  .rw-display { font-size: clamp(2.2rem, 10.5vw, 3.0rem); letter-spacing: -0.026em; }
+  .rw-phero__display { font-size: clamp(2.2rem, 9.5vw, 3.0rem); }
+}
+
+/* ---- full-bleed photo band ---- */
+.rw-photoband { position: relative; width: 100%; min-height: clamp(300px, 48vh, 520px); display: flex; align-items: flex-end; overflow: hidden; background: var(--charcoal-deep); border-block: 1px solid var(--hairline-dark); }
+.rw-photoband__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.rw-photoband__scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(26,26,24,0.92) 0%, rgba(26,26,24,0.62) 36%, rgba(26,26,24,0.22) 66%, rgba(26,26,24,0.42) 100%); }
+.rw-photoband__inner { position: relative; padding-block: clamp(2.4rem, 6vh, 4rem); }
+.rw-photoband__t { font-family: var(--font-serif); font-weight: 400; font-size: clamp(1.8rem, 3.6vw, 2.9rem); line-height: 1.05; letter-spacing: -0.02em; color: var(--warm-white); margin: 0; max-width: 20ch; }
+.rw-photoband__t em { font-style: italic; color: var(--green-on-dark); }

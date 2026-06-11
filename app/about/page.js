@@ -57,7 +57,7 @@ export default function About() {
               </p>
             </div>
             <div className="rw-split__media">
-              <Image src="/photos/substation-breaker.jpg" alt="High-voltage circuit breaker and bushings at an energized substation." fill sizes="(max-width:880px) 100vw, 50vw" style={{ objectFit: "cover" }} />
+              <Image src="/photos/substation-gis.jpg" alt="Gas-insulated switchgear and high-voltage interconnection at a commissioned substation." fill sizes="(max-width:880px) 100vw, 50vw" style={{ objectFit: "cover" }} />
             </div>
           </div>
         </div>

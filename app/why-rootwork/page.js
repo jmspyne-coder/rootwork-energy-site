@@ -76,10 +76,10 @@ export default function WhyRootwork() {
       {/* Brand image band — swap in the four raise images when provided */}
       <section style={{ background: "var(--charcoal-deep)" }}>
         <div className="rw-imageband rw-reveal">
-          <figure><img src="/photos/bess-array.jpg" alt="Utility-scale battery energy storage array." /></figure>
-          <figure><img src="/photos/substation-switchgear.jpg" alt="Substation switchgear and interconnection structure." /></figure>
-          <figure><img src="/photos/controls-board.jpg" alt="Battery management control board inside an enclosure." /></figure>
-          <figure><img src="/photos/fleet-winter.jpg" alt="Energy storage equipment in a snow-covered field." /></figure>
+          <figure><img src="/photos/bess-row.jpg" alt="Rows of utility-scale battery storage enclosures receding to the horizon." /></figure>
+          <figure><img src="/photos/substation-gis.jpg" alt="Gas-insulated switchgear at a high-voltage substation." /></figure>
+          <figure><img src="/photos/controls-pcb.jpg" alt="Battery management system control board with field wiring." /></figure>
+          <figure><img src="/photos/bess-winter.jpg" alt="Battery storage enclosures operating in a snow-covered field." /></figure>
         </div>
       </section>
 

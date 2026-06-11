@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { EMAIL } from "./site-config";
 
 const DO = [
@@ -17,7 +18,7 @@ export default function Home() {
           <div className="rw-hero__lead">
             <p className="rw-kicker rw-reveal rw-d1">Commissioning · Operations · Recovery</p>
             <h1 className="rw-display rw-reveal rw-d2">
-              Operator-led.<br />Built to <em>recover</em>.
+              Operator‑led.<br />Built to <em>recover</em>.
             </h1>
             <p className="rw-hero__thesis rw-reveal rw-d3">
               The distance between a model and a megawatt is execution. We commission,
@@ -62,6 +63,14 @@ export default function Home() {
       </section>
 
       {/* STATEMENT */}
+      <section className="rw-photoband">
+        <Image src="/photos/bess-row.jpg" alt="Rows of utility-scale battery storage enclosures receding to the horizon." fill priority sizes="100vw" className="rw-photoband__img" style={{ objectFit: "cover" }} />
+        <div className="rw-photoband__scrim" />
+        <div className="container rw-photoband__inner">
+          <p className="rw-photoband__t rw-reveal">Assets others wrote off, <em>back in service</em>.</p>
+        </div>
+      </section>
+
       <section className="rw-statement">
         <div className="container">
           <p className="rw-statement__eyebrow rw-reveal">The thesis</p>
