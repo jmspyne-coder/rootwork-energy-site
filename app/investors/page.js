@@ -15,7 +15,10 @@ const PILLARS = [
 export default function Investors() {
   return (
     <main>
-      <section className="rw-phero">
+      <section
+        className="rw-phero rw-phero--photo"
+        style={{ backgroundImage: "linear-gradient(90deg, rgba(20,20,18,0.92), rgba(20,20,18,0.6) 55%, rgba(20,20,18,0.4)), linear-gradient(180deg, rgba(20,20,18,0.42), rgba(20,20,18,0.82)), url('/photos/bess-row.jpg')" }}
+      >
         <div className="container rw-phero__inner">
           <p className="rw-kicker rw-reveal">Investors</p>
           <h1 className="rw-phero__display rw-reveal rw-d1">Operator-led ownership <em>compounds</em>.</h1>

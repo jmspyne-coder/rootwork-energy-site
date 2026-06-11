@@ -1003,3 +1003,7 @@ body::after {
 /* dispatch signature relocated below hero */
 .rw-dispatch-row { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
 @media (max-width: 900px) { .rw-dispatch-row { grid-template-columns: 1fr; gap: 2.6rem; } .rw-dispatch-row .rw-hero__data { max-width: 480px; } }
+
+/* ---- interior page hero, photographic variant ---- */
+.rw-phero--photo { background-size: cover; background-position: center; background-repeat: no-repeat; }
+.rw-phero--photo .rw-phero__inner { padding-block: clamp(5rem, 12vh, 8.5rem); }

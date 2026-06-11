@@ -38,7 +38,10 @@ function Grid({ items }) {
 export default function Services() {
   return (
     <main>
-      <section className="rw-phero">
+      <section
+        className="rw-phero rw-phero--photo"
+        style={{ backgroundImage: "linear-gradient(90deg, rgba(20,20,18,0.92), rgba(20,20,18,0.6) 55%, rgba(20,20,18,0.4)), linear-gradient(180deg, rgba(20,20,18,0.42), rgba(20,20,18,0.82)), url('/photos/substation-gis.jpg')" }}
+      >
         <div className="container rw-phero__inner">
           <p className="rw-kicker rw-reveal">For owners &amp; developers</p>
           <h1 className="rw-phero__display rw-reveal rw-d1">Execution, on your <em>assets</em>.</h1>
