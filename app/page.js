@@ -12,27 +12,50 @@ const DO = [
 export default function Home() {
   return (
     <main>
-      {/* HERO */}
-      <section className="rw-hero">
-        <div className="rw-hero__grid container">
-          <div className="rw-hero__lead">
-            <p className="rw-kicker rw-reveal rw-d1">Commissioning · Operations · Recovery</p>
-            <h1 className="rw-display rw-reveal rw-d2">
-              Operator‑led.<br />Built to <em>recover</em>.
-            </h1>
-            <p className="rw-hero__thesis rw-reveal rw-d3">
-              The distance between a model and a megawatt is execution. We commission,
-              operate, and recover utility-scale storage and renewables across CAISO
-              and ERCOT, and run them like the field reality is the only thing that
-              matters.
-            </p>
-            <div className="rw-actions rw-reveal rw-d4">
-              <Link className="rw-btn" href="/services">What we do</Link>
-              <Link className="rw-btn rw-btn--ghost" href="/why-rootwork">Why Rootwork</Link>
-            </div>
+      {/* HERO — full-bleed BESS background */}
+      <section className="rw-hero--photo">
+        <Image
+          src="/photos/bess-row.jpg"
+          alt="Rows of utility-scale battery storage enclosures receding to the horizon."
+          fill
+          priority
+          sizes="100vw"
+          className="rw-hero__bg"
+          style={{ objectFit: "cover", objectPosition: "center 40%" }}
+        />
+        <div className="rw-hero__scrim" />
+        <div className="container rw-hero__content">
+          <p className="rw-kicker rw-reveal rw-d1">Commissioning · Operations · Recovery</p>
+          <h1 className="rw-display rw-reveal rw-d2">
+            Operator‑led.<br />Built to <em>recover</em>.
+          </h1>
+          <p className="rw-hero__thesis rw-reveal rw-d3">
+            The distance between a model and a megawatt is execution. We commission,
+            operate, and recover utility-scale storage and renewables across CAISO and
+            ERCOT, and run them like the field reality is the only thing that matters.
+          </p>
+          <div className="rw-actions rw-reveal rw-d4">
+            <Link className="rw-btn" href="/services">What we do</Link>
+            <Link className="rw-btn rw-btn--ghost" href="/why-rootwork">Why Rootwork</Link>
           </div>
+        </div>
+      </section>
 
-          <aside className="rw-hero__data rw-reveal rw-d4">
+      {/* THESIS + dispatch signature */}
+      <section className="rw-statement">
+        <div className="container rw-dispatch-row">
+          <div>
+            <p className="rw-statement__eyebrow rw-reveal">The thesis</p>
+            <p className="rw-statement__text rw-reveal rw-d1">
+              The gap between the proforma and the megawatt is <span className="hl">execution</span>.
+            </p>
+            <p className="rw-statement__sub rw-reveal rw-d2">
+              Models promise output. Assets deliver it only when someone commissions the
+              system correctly, holds availability through every season, and chases the
+              warranty scope no one else will. That work is what we do.
+            </p>
+          </div>
+          <aside className="rw-hero__data rw-reveal rw-d2">
             <div className="rw-dispatch">
               <svg viewBox="0 0 520 360" role="img" aria-label="Stated dispatch versus actual field dispatch">
                 <defs>
@@ -41,11 +64,8 @@ export default function Home() {
                     <stop offset="100%" stopColor="#88B06C" stopOpacity="0" />
                   </linearGradient>
                 </defs>
-                {/* model (proforma) line */}
                 <path className="rw-dispatch__model" d="M16 196 L504 120" />
-                {/* fill under actual */}
                 <path className="rw-dispatch__fill" d="M16 196 C70 184 104 188 150 214 C196 240 220 300 266 296 C312 292 330 232 380 244 C430 256 462 196 504 188 L504 340 L16 340 Z" />
-                {/* actual field dispatch */}
                 <path className="rw-dispatch__actual" d="M16 196 C70 184 104 188 150 214 C196 240 220 300 266 296 C312 292 330 232 380 244 C430 256 462 196 504 188" />
                 <circle className="rw-dispatch__dot" cx="266" cy="296" r="4" style={{ animationDelay: "2.4s" }} />
                 <circle className="rw-dispatch__dot" cx="504" cy="188" r="4" style={{ animationDelay: "2.9s" }} />
@@ -59,29 +79,6 @@ export default function Home() {
               <div><dt>Scope</dt><dd>Full lifecycle</dd></div>
             </dl>
           </aside>
-        </div>
-      </section>
-
-      {/* STATEMENT */}
-      <section className="rw-photoband">
-        <Image src="/photos/bess-row.jpg" alt="Rows of utility-scale battery storage enclosures receding to the horizon." fill priority sizes="100vw" className="rw-photoband__img" style={{ objectFit: "cover" }} />
-        <div className="rw-photoband__scrim" />
-        <div className="container rw-photoband__inner">
-          <p className="rw-photoband__t rw-reveal">Assets others wrote off, <em>back in service</em>.</p>
-        </div>
-      </section>
-
-      <section className="rw-statement">
-        <div className="container">
-          <p className="rw-statement__eyebrow rw-reveal">The thesis</p>
-          <p className="rw-statement__text rw-reveal rw-d1">
-            The gap between the proforma and the megawatt is <span className="hl">execution</span>.
-          </p>
-          <p className="rw-statement__sub rw-reveal rw-d2">
-            Models promise output. Assets deliver it only when someone commissions the
-            system correctly, holds availability through every season, and chases the
-            warranty scope no one else will. That work is what we do.
-          </p>
         </div>
       </section>
 
@@ -113,7 +110,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
     </main>
   );
 }
