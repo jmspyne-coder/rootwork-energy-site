@@ -5,7 +5,7 @@ import { EMAIL } from "../site-config";
 export const metadata = {
   title: "About",
   description:
-    "Rootwork Energy is an operator-led company that commissions, operates, and recovers utility-scale storage and renewables for owners and developers, and runs assets of its own.",
+    "Rootwork Energy is an operator-led independent power producer that acquires underperforming utility-scale storage and generation, repowers it, and holds it long term.",
 };
 
 export default function About() {
@@ -19,9 +19,9 @@ export default function About() {
           <p className="rw-kicker rw-reveal">About</p>
           <h1 className="rw-phero__display rw-reveal rw-d1">Built by <em>operators</em>.</h1>
           <p className="rw-phero__lede rw-reveal rw-d2">
-            Rootwork Energy commissions, operates, and recovers utility-scale storage
-            and renewables, for the owners and developers who hire us and on the assets
-            we run ourselves. Led by people who came up in the field.
+            Rootwork Energy acquires underperforming utility-scale storage and
+            generation, repowers it, and operates it long term as an independent power
+            producer. Led by people who came up in the field, on the assets themselves.
           </p>
         </div>
       </section>
@@ -33,10 +33,11 @@ export default function About() {
               <p className="rw-statement__eyebrow" style={{ color: "var(--green)" }}>Our approach</p>
               <h2 className="rw-split__t">Value is created in the <em>field</em>, not the spreadsheet.</h2>
               <p className="lede">
-                We commission systems into service, recover output on assets running
-                below their potential, and hold availability through disciplined
-                operations. We own and operate assets of our own as well, which is why
-                we run yours the same way.
+                We buy assets running below their potential, recover their output
+                through hands-on execution, and hold availability through disciplined
+                operations. We have done exactly this work in the field for a decade,
+                which is what tells us which assets can be brought back and what it takes
+                to do it.
               </p>
             </div>
             <div className="rw-split__media">
@@ -76,7 +77,7 @@ export default function About() {
             Field reality over the spreadsheet. We measure ourselves by what an asset
             actually delivers, season after season.
           </p>
-          <Link href="/services" className="textlink on-light rw-reveal rw-d3">See what we do →</Link>
+          <Link href="/capabilities" className="textlink on-light rw-reveal rw-d3">See our capabilities →</Link>
         </div>
       </section>
 

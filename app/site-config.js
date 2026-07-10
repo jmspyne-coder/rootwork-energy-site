@@ -4,20 +4,21 @@
 // Leave as "" to disable analytics. Paste your ID here to turn it on.
 export const GA_ID = "";
 
-export const EMAIL = "contact@rootwork.energy";
+export const EMAIL = "info@rootwork.energy";
 
 export const NAV = [
   { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/why-rootwork", label: "Why Rootwork" },
+  { href: "/platform", label: "Platform" },
+  { href: "/capabilities", label: "Capabilities" },
   { href: "/contact", label: "Contact" },
+  { href: "/investors", label: "Investors" },
 ];
 
 export const FOOTER_NAV = [
   ...[
     { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
-    { href: "/why-rootwork", label: "Why Rootwork" },
+    { href: "/platform", label: "Platform" },
+    { href: "/capabilities", label: "Capabilities" },
     { href: "/investors", label: "Investors" },
     { href: "/contact", label: "Contact" },
   ],
