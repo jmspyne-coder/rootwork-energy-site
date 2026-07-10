@@ -21,11 +21,11 @@ export const metadata = {
     template: "%s · Rootwork Energy",
   },
   description:
-    "Rootwork Energy is an operator-led company that commissions, operates, and recovers utility-scale storage and renewables, for the owners and developers who hire us and on the assets we run ourselves.",
+    "Rootwork Energy is an operator-led independent power producer that acquires underperforming utility-scale storage and generation at distressed valuations, repowers it, and holds it long term.",
   openGraph: {
     title: "Rootwork Energy",
     description:
-      "Operator-led. Built to recover. We commission, operate, and recover utility-scale storage and renewables for owners and developers, and run assets of our own.",
+      "Operator-led. Built to recover. We acquire underperforming energy storage and generation assets, repower them, and hold long term as an independent power producer.",
     url: "https://rootwork.energy",
     siteName: "Rootwork Energy",
     type: "website",

@@ -40,6 +40,9 @@ export default function Investors() {
           <p className="rw-statement__sub rw-reveal rw-d2">
             Not by what it was modeled to deliver. That distinction is the entire edge,
             and it only shows up for owners who have run these systems in the field.
+            Rootwork's proprietary analytics platform monitors asset-level performance
+            across the US fleet, identifying acquisition candidates before they reach
+            the market.
           </p>
         </div>
       </section>

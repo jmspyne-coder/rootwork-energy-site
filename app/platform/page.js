@@ -1,9 +1,9 @@
 import { EMAIL } from "../site-config";
 
 export const metadata = {
-  title: "Why Rootwork",
+  title: "Platform",
   description:
-    "Why operator-led execution produces better outcomes than arm's-length ownership or generalist contracting. Operational truth is the foundation everything else is built on.",
+    "Operator-led origination, repower, and long-term ownership. We find distressed assets by how they perform in the field, recover them, and hold them as an operating platform.",
 };
 
 const ROWS = [
@@ -14,7 +14,7 @@ const ROWS = [
   { k: "How problems surface", rw: "Early, from telemetry and field presence", own: "Late, in the monthly report", gen: "When someone calls them back" },
 ];
 
-export default function WhyRootwork() {
+export default function Platform() {
   return (
     <main>
       <section
@@ -22,12 +22,13 @@ export default function WhyRootwork() {
         style={{ backgroundImage: "linear-gradient(90deg, rgba(20,20,18,0.92), rgba(20,20,18,0.6) 55%, rgba(20,20,18,0.4)), linear-gradient(180deg, rgba(20,20,18,0.42), rgba(20,20,18,0.82)), url('/photos/substation-fence.jpg')" }}
       >
         <div className="container rw-phero__inner">
-          <p className="rw-kicker rw-reveal">Why Rootwork</p>
-          <h1 className="rw-phero__display rw-reveal rw-d1">The model was never the <em>hard part</em>.</h1>
+          <p className="rw-kicker rw-reveal">Platform</p>
+          <h1 className="rw-phero__display rw-reveal rw-d1">We buy the gap others <em>cannot see</em>.</h1>
           <p className="rw-phero__lede rw-reveal rw-d2">
             Every proforma assumes the asset performs. Performance is not given. It is
-            commissioned, defended, and recovered in the field, and that is the work
-            most owners hand to whoever is cheapest.
+            commissioned, defended, and recovered in the field, and the assets that lose
+            it quietly are the ones we acquire, repower, and hold. Our platform is the
+            operator judgment that finds them and the execution that brings them back.
           </p>
         </div>
       </section>

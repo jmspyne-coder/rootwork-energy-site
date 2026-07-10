@@ -2,11 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { EMAIL } from "./site-config";
 
-const DO = [
-  { t: "Commissioning & energization", b: "Systems brought online and into commercial service: testing, integration, and a clean handover." },
-  { t: "Operations & maintenance", b: "Preventive and corrective maintenance with active performance management to hold availability through every season." },
-  { t: "Controls & energy management", b: "Controls and EMS configured and optimized so assets dispatch reliably and deliver what they are contracted to deliver." },
-  { t: "Performance recovery", b: "Diagnose and restore output on systems running below their potential, including assets others have written off." },
+const PILLARS = [
+  { n: "01", t: "Operator-led origination", b: "We identify distressed assets before they hit the market using proprietary performance diagnostics built from field experience across 2.5 GW of operating assets." },
+  { n: "02", t: "Recovery, not speculation", b: "Every acquisition starts with an existing interconnection and a known performance gap. We don't build from scratch. We buy what's broken and fix what others couldn't." },
+  { n: "03", t: "Long-term ownership", b: "We hold and operate. Revenue compounds from day one through existing power purchase agreements and merchant exposure, amplified by the performance recovery we deliver." },
 ];
 
 export default function Home() {
@@ -25,18 +24,21 @@ export default function Home() {
         />
         <div className="rw-hero__scrim" />
         <div className="container rw-hero__content">
-          <p className="rw-kicker rw-reveal rw-d1">Commissioning · Operations · Recovery</p>
+          <p className="rw-kicker rw-reveal rw-d1">Acquire · Repower · Operate</p>
           <h1 className="rw-display rw-reveal rw-d2">
             Operator‑led.<br />Built to <em>recover</em>.
           </h1>
           <p className="rw-hero__thesis rw-reveal rw-d3">
-            The distance between a model and a megawatt is execution. We commission,
-            operate, and recover utility-scale storage and renewables across CAISO and
-            ERCOT, and run them like the field reality is the only thing that matters.
+            Rootwork Energy acquires underperforming battery storage and power
+            generation assets at distressed valuations, repowers them through
+            proprietary operational diagnostics, and holds them long term as an
+            independent power producer. We don't speculate on sites or technologies. We
+            buy broken assets with existing interconnections and fix them, because we
+            have spent a decade doing exactly that for other owners.
           </p>
           <div className="rw-actions rw-reveal rw-d4">
-            <Link className="rw-btn" href="/services">What we do</Link>
-            <Link className="rw-btn rw-btn--ghost" href="/why-rootwork">Why Rootwork</Link>
+            <Link className="rw-btn" href="/investors">For investors</Link>
+            <Link className="rw-btn rw-btn--ghost" href="/about">Learn more</Link>
           </div>
         </div>
       </section>
@@ -50,9 +52,11 @@ export default function Home() {
               The gap between the proforma and the megawatt is <span className="hl">execution</span>.
             </p>
             <p className="rw-statement__sub rw-reveal rw-d2">
-              Models promise output. Assets deliver it only when someone commissions the
-              system correctly, holds availability through every season, and chases the
-              warranty scope no one else will. That work is what we do.
+              Assets deliver their model only when someone commissions the system
+              correctly, holds availability through every season, and chases the
+              warranty scope no one else will. That gap is where value is lost, and it
+              is exactly where we buy. The distress others cannot see is the distress we
+              acquire and recover.
             </p>
           </div>
           <aside className="rw-hero__data rw-reveal rw-d2">
@@ -76,25 +80,25 @@ export default function Home() {
             <dl className="rw-readouts">
               <div><dt>Markets</dt><dd>CAISO · ERCOT</dd></div>
               <div><dt>Field</dt><dd>10+ years</dd></div>
-              <div><dt>Scope</dt><dd>Full lifecycle</dd></div>
+              <div><dt>Model</dt><dd>Acquire · Hold</dd></div>
             </dl>
           </aside>
         </div>
       </section>
 
-      {/* WHAT WE DO */}
+      {/* HOW OPERATOR-LED OWNERSHIP COMPOUNDS */}
       <section className="rw-do">
         <div className="container">
           <div className="rw-do__head rw-reveal">
-            <h2 className="rw-do__title">What operator-led <em>looks like</em>.</h2>
-            <Link href="/services" className="textlink on-light">All services →</Link>
+            <h2 className="rw-do__title">Acquire, repower, <em>hold</em>.</h2>
+            <Link href="/investors" className="textlink on-light">For investors →</Link>
           </div>
-          <div className="rw-grid2 rw-reveal rw-d1">
-            {DO.map((c) => (
-              <article key={c.t} className="rw-cell">
-                <span className="rw-cell__tick" />
-                <h3 className="rw-cell__t">{c.t}</h3>
-                <p className="rw-cell__b">{c.b}</p>
+          <div className="rw-grid3 rw-reveal rw-d1">
+            {PILLARS.map((p) => (
+              <article key={p.n} className="rw-pill">
+                <span className="rw-pill__n">{p.n}</span>
+                <h3 className="rw-pill__t">{p.t}</h3>
+                <p className="rw-pill__b">{p.b}</p>
               </article>
             ))}
           </div>
