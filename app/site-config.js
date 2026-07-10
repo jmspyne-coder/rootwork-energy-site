@@ -4,7 +4,7 @@
 // Leave as "" to disable analytics. Paste your ID here to turn it on.
 export const GA_ID = "";
 
-export const EMAIL = "james@rootwork.energy";
+export const EMAIL = "info@rootwork.energy";
 
 export const NAV = [
   { href: "/about", label: "About" },
