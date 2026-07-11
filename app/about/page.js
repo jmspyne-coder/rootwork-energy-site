@@ -77,7 +77,14 @@ export default function About() {
             Field reality over the spreadsheet. We measure ourselves by what an asset
             actually delivers, season after season.
           </p>
-          <Link href="/capabilities" className="textlink on-light rw-reveal rw-d3">See our capabilities →</Link>
+          <p className="lede rw-reveal rw-d3" style={{ marginBottom: "1.8rem" }}>
+            When the tools we needed did not exist, we built them. The screen that finds
+            distressed assets, the engine that prices a build in seconds, the control
+            catalog behind the EMS: all of it came out of the field, and all of it makes
+            the next asset faster to judge. That is what AI-native looks like for an
+            operator. It is not a product line. It is how we work.
+          </p>
+          <Link href="/capabilities" className="textlink on-light rw-reveal rw-d4">See our capabilities →</Link>
         </div>
       </section>
 

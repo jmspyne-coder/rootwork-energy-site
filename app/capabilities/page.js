@@ -69,6 +69,43 @@ export default function Capabilities() {
 
       <section className="rw-do">
         <div className="container">
+          <div className="rw-do__head rw-reveal">
+            <h2 className="rw-do__title">The tools we <em>built</em>.</h2>
+            <Link href="/platform" className="textlink on-light">The operating model →</Link>
+          </div>
+          <p className="lede rw-reveal rw-d1" style={{ maxWidth: "62ch", marginBottom: "2.6rem" }}>
+            The same field knowledge that recovers an asset also built the tools we run
+            the business on. They are not products we sell first. They are how a small
+            team operates with the reach of a large one, and each one gets more accurate
+            the more we use it.
+          </p>
+          <div className="rw-grid2 rw-reveal rw-d2">
+            <article className="rw-cell">
+              <span className="rw-cell__tick" />
+              <h3 className="rw-cell__t">Distress screening</h3>
+              <p className="rw-cell__b">Performance diagnostics that flag an underperforming asset before its owner sees the decline. It is how we source acquisitions: the screen reads the field signal owners miss.</p>
+            </article>
+            <article className="rw-cell">
+              <span className="rw-cell__tick" />
+              <h3 className="rw-cell__t">Parametric cost estimation</h3>
+              <p className="rw-cell__b">A construction cost engine for battery yards and substations that returns a directional number in seconds, calibrated by feedback from working builders. In pilot with a national EPC firm.</p>
+            </article>
+            <article className="rw-cell">
+              <span className="rw-cell__tick" />
+              <h3 className="rw-cell__t">The EMS</h3>
+              <p className="rw-cell__b">A control catalog built from field reality rather than a spec sheet, enabling grid services that cannot be retrofitted onto a system after the fact.</p>
+            </article>
+            <article className="rw-cell">
+              <span className="rw-cell__tick" />
+              <h3 className="rw-cell__t">Market intelligence</h3>
+              <p className="rw-cell__b">Regime-aware dispatch analysis, revenue benchmarking, and fleet performance tracking across CAISO and ERCOT, so we price an asset on what it will actually earn.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="rw-do">
+        <div className="container">
           <div className="rw-split rw-reveal">
             <div className="rw-split__media">
               <Image src="/photos/commissioning-field.jpg" alt="Engineer reviewing commissioning documentation at an energized substation." fill sizes="(max-width:880px) 100vw, 50vw" style={{ objectFit: "cover" }} />
