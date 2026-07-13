@@ -28,7 +28,7 @@ export const CAPABILITIES = [
   {
     title: "Diligence & operational readiness",
     blurb:
-      "Independent technical and commercial review of whether an asset will actually perform against its plan, for owners and developers ahead of build, financing, or handover.",
+      "Independent technical and commercial review of whether an asset will actually perform against its plan, run on every acquisition target before we buy.",
     img: "/photos/substation-yard.jpg",
     alt: "Grid-connected substation switchyard behind a perimeter fence.",
   },
