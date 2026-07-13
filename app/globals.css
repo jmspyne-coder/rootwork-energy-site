@@ -991,7 +991,7 @@ body::after {
 .rw-photoband__t { font-family: var(--font-serif); font-weight: 400; font-size: clamp(1.8rem, 3.6vw, 2.9rem); line-height: 1.05; letter-spacing: -0.02em; color: var(--warm-white); margin: 0; max-width: 20ch; }
 .rw-photoband__t em { font-style: italic; color: var(--green-on-dark); }
 
-/* ---- full-bleed photographic hero (Jupiter-style) ---- */
+/* ---- full-bleed photographic hero (editorial full-bleed style) ---- */
 .rw-hero--photo { position: relative; display: flex; align-items: center; min-height: clamp(560px, 86vh, 900px); overflow: hidden; background: var(--charcoal-deep); border-bottom: 1px solid var(--hairline-dark); }
 .rw-hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
 .rw-hero__scrim { position: absolute; inset: 0; z-index: 1;

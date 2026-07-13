@@ -63,7 +63,7 @@ export const CAPABILITIES = [
   {
     title: "Interconnection & substation",
     blurb:
-      "High-voltage interconnection and substation scope to keep assets safely and fully deliverable to the grid.",
+      "We coordinate and manage high-voltage interconnection and substation scope with licensed contractors, keeping assets safely and fully deliverable to the grid.",
     img: "/photos/substation-switchgear.jpg",
     alt: "Substation switchgear and high-voltage interconnection structure.",
   },
