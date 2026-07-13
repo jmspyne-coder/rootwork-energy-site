@@ -12,7 +12,7 @@ const CAPS = [
   { t: "Commissioning & integration", b: "We manage the full commissioning lifecycle for every asset in our portfolio, from energization through performance acceptance." },
   { t: "Operational diagnostics", b: "Performance monitoring built from field experience, not spec sheets. We identify degradation patterns and dispatch failures that standard SCADA monitoring misses." },
   { t: "Performance recovery", b: "Systematic repower programs that restore underperforming assets to design-level dispatch. This is the core of our acquisition thesis." },
-  { t: "O&M management", b: "Long-term operations and maintenance for owned assets, with the option to extend these capabilities to strategic partners." },
+  { t: "O&M management", b: "Long-term operations and maintenance for the assets we own and repower, run in-house across the fleet." },
 ];
 
 export default function Capabilities() {

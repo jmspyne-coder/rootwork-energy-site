@@ -28,7 +28,7 @@ export const CAPABILITIES = [
   {
     title: "Diligence & operational readiness",
     blurb:
-      "Independent technical and commercial review of whether an asset will actually perform against its plan, for owners and developers ahead of build, financing, or handover.",
+      "Independent technical and commercial review of whether an asset will actually perform against its plan, run on every acquisition target before we buy.",
     img: "/photos/substation-yard.jpg",
     alt: "Grid-connected substation switchyard behind a perimeter fence.",
   },
@@ -63,7 +63,7 @@ export const CAPABILITIES = [
   {
     title: "Interconnection & substation",
     blurb:
-      "High-voltage interconnection and substation scope to keep assets safely and fully deliverable to the grid.",
+      "We coordinate and manage high-voltage interconnection and substation scope with licensed contractors, keeping assets safely and fully deliverable to the grid.",
     img: "/photos/substation-switchgear.jpg",
     alt: "Substation switchgear and high-voltage interconnection structure.",
   },
