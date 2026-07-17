@@ -38,10 +38,7 @@ export default function Home() {
         <div className="hero__scrim" />
         <div className="container hero__content">
           <p className="kicker rw-reveal rw-d1">Operator-led. Built to recover.</p>
-          <h1
-            className="display rw-reveal rw-d2"
-            style={{ fontSize: "clamp(2.5rem, 5.4vw, 4.5rem)", maxWidth: "24ch" }}
-          >
+          <h1 className="display rw-reveal rw-d2">
             The grid is short on power. The fleet built to supply it is
             <em> underperforming</em>.
           </h1>
@@ -57,6 +54,25 @@ export default function Home() {
             <Link className="btn btn--ghost" href="/contact">
               Contact
             </Link>
+          </div>
+        </div>
+        <div className="telemetry" aria-hidden="true">
+          <div className="container">
+            <svg viewBox="0 0 1200 150" preserveAspectRatio="none" style={{ height: "clamp(80px, 12vh, 150px)" }}>
+              <path
+                className="t-bleed"
+                d="M0,34 L1200,34 L1200,34 C1050,34 980,34 940,34 C860,34 800,96 700,104 C600,112 520,88 430,72 C340,56 240,40 120,35 C80,34 40,34 0,34 Z"
+              />
+              <line className="t-obligated" x1="0" y1="34" x2="1200" y2="34" />
+              <path
+                className="t-delivered"
+                d="M0,34 C40,34 80,34 120,35 C240,40 340,56 430,72 C520,88 600,112 700,104 C800,96 860,34 940,34 C980,34 1050,34 1200,34"
+              />
+              <circle className="t-dot" cx="940" cy="34" r="3" />
+              <text className="t-label" x="0" y="22">OBLIGATED</text>
+              <text className="t-label" x="560" y="134">DELIVERED</text>
+              <text className="t-label t-label--green" x="920" y="22">REPOWERED</text>
+            </svg>
           </div>
         </div>
       </section>
@@ -75,6 +91,8 @@ export default function Home() {
               Data-center load growth is the largest new source of electricity
               demand the US grid has seen in decades, and interconnection
               queues stretch years. New capacity cannot be built fast enough.
+            </p>
+            <p className="pull rw-reveal rw-d2">
               The fastest megawatt to market is the one already connected and
               underperforming.
             </p>
@@ -140,13 +158,12 @@ export default function Home() {
           <h2 className="section-title on-light rw-reveal rw-d1">
             Screen. Acquire. Repower. Operate &amp; Hold.
           </h2>
-          <div className="cards rw-reveal rw-d2">
+          <div className="ledger rw-reveal rw-d2">
             {MODEL.map((m, i) => (
-              <article key={m.title} className="card">
-                <span className="card__tick" aria-hidden="true" />
-                <span className="card__step">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="card__title">{m.title}</h3>
-                <p className="card__body">{m.body}</p>
+              <article key={m.title} className="ledger__row">
+                <span className="ledger__num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="ledger__title">{m.title}</h3>
+                <p className="ledger__body">{m.body}</p>
               </article>
             ))}
           </div>
