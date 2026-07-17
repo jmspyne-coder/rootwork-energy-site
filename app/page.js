@@ -61,33 +61,47 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BAND 1 — Why now (light) */}
+      {/* BAND 1 — Why now (light, editorial two-column) */}
       <section className="band band--light">
-        <div className="container split">
+        <div className="container duo">
           <div>
             <p className="kicker on-light rw-reveal">Why now</p>
             <h2 className="section-title on-light rw-reveal rw-d1">
               AI changed the demand curve.
             </h2>
+          </div>
+          <div className="duo__body">
             <p className="body-copy rw-reveal rw-d2">
               Data-center load growth is the largest new source of electricity
-              demand the US grid has seen in decades, and interconnection queues
-              stretch years. New capacity cannot be built fast enough. The
-              fastest megawatt to market is the one already connected and
-              underperforming. Queue position is a finite asset that cannot be
-              manufactured, and every underperforming plant that holds one is
-              future capacity hiding in plain sight.
+              demand the US grid has seen in decades, and interconnection
+              queues stretch years. New capacity cannot be built fast enough.
+              The fastest megawatt to market is the one already connected and
+              underperforming.
+            </p>
+            <p className="body-copy rw-reveal rw-d2">
+              Queue position is a finite asset that cannot be manufactured, and
+              every underperforming plant that holds one is future capacity
+              hiding in plain sight.
             </p>
           </div>
-          <div className="split__media rw-reveal rw-d2">
-            <Image
-              src="/photos/substation-yard.jpg"
-              alt="Grid-connected substation switchyard behind a perimeter fence."
-              fill
-              sizes="(max-width: 880px) 100vw, 50vw"
-              style={{ objectFit: "cover" }}
-            />
-          </div>
+        </div>
+      </section>
+
+      {/* PHOTOBAND — full-bleed statement */}
+      <section className="photoband">
+        <Image
+          src="/photos/substation-gis.jpg"
+          alt="High-voltage circuit breaker with radiating bushings at a grid interconnection."
+          fill
+          sizes="100vw"
+          className="photoband__img"
+          style={{ objectPosition: "center 30%" }}
+        />
+        <div className="photoband__scrim" />
+        <div className="container photoband__inner">
+          <p className="photoband__t rw-reveal">
+            Queue position is a finite asset that cannot be manufactured.
+          </p>
         </div>
       </section>
 
@@ -129,6 +143,7 @@ export default function Home() {
           <div className="cards rw-reveal rw-d2">
             {MODEL.map((m, i) => (
               <article key={m.title} className="card">
+                <span className="card__tick" aria-hidden="true" />
                 <span className="card__step">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="card__title">{m.title}</h3>
                 <p className="card__body">{m.body}</p>
@@ -161,13 +176,13 @@ export default function Home() {
               About Rootwork →
             </Link>
           </div>
-          <div className="split__media rw-reveal rw-d2">
+          <div className="split__media rw-reveal rw-d2" style={{ aspectRatio: "16/10" }}>
             <Image
               src="/photos/commissioning-field.jpg"
-              alt="Field commissioning work at a utility-scale energy storage site."
+              alt="Field commissioning work at a utility-scale substation."
               fill
               sizes="(max-width: 880px) 100vw, 50vw"
-              style={{ objectFit: "cover" }}
+              style={{ objectFit: "cover", objectPosition: "center 20%" }}
             />
           </div>
         </div>

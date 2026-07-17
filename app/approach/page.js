@@ -116,18 +116,12 @@ export default function Approach() {
             services-grade operating capability is what turns a distressed
             purchase into a performing plant.
           </p>
-          <div className="stats rw-reveal rw-d2" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
+          <div className="depth rw-reveal rw-d2">
             {MODEL_DEPTH.map((m, i) => (
-              <article key={m.title} className="stat">
-                <span className="card__step" style={{ color: "var(--muted-dark)" }}>
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="card__title" style={{ color: "var(--bone)" }}>
-                  {m.title}
-                </h3>
-                <p className="card__body" style={{ color: "var(--muted-dark)" }}>
-                  {m.body}
-                </p>
+              <article key={m.title} className="depth__cell">
+                <span className="depth__n">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="depth__t">{m.title}</h3>
+                <p className="depth__b">{m.body}</p>
               </article>
             ))}
           </div>

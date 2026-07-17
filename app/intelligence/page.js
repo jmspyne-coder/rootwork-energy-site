@@ -14,8 +14,8 @@ export default function Intelligence() {
       {/* HERO */}
       <section className="hero phero">
         <Image
-          src="/photos/controls-board.jpg"
-          alt="Battery management control board wired inside an equipment enclosure."
+          src="/photos/battery-modules.jpg"
+          alt="Dense rack of battery modules inside a utility-scale storage enclosure."
           fill
           priority
           sizes="100vw"
@@ -92,11 +92,11 @@ export default function Intelligence() {
           </div>
           <div className="split__media rw-reveal rw-d2">
             <Image
-              src="/photos/controls-pcb.jpg"
-              alt="Detail of a printed circuit board from an energy storage control system."
+              src="/photos/substation-breaker.jpg"
+              alt="High-voltage breaker at an energized grid interconnection."
               fill
               sizes="(max-width: 880px) 100vw, 50vw"
-              style={{ objectFit: "cover" }}
+              style={{ objectFit: "cover", objectPosition: "center 40%" }}
             />
           </div>
         </div>
