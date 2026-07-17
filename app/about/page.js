@@ -1,92 +1,94 @@
-import Image from "next/image";
 import Link from "next/link";
-import { EMAIL } from "../site-config";
+import Image from "next/image";
 
 export const metadata = {
   title: "About",
   description:
-    "Rootwork Energy is an operator-led independent power producer that acquires underperforming utility-scale storage and generation, repowers it, and holds it long term.",
+    "Rootwork Energy is an operator-led independent power producer, founded and led by James Payne, building toward its first acquisitions of underperforming, interconnection-capable energy assets.",
 };
 
 export default function About() {
   return (
     <main>
-      <section
-        className="rw-phero rw-phero--photo"
-        style={{ backgroundImage: "linear-gradient(90deg, rgba(20,20,18,0.92), rgba(20,20,18,0.6) 55%, rgba(20,20,18,0.4)), linear-gradient(180deg, rgba(20,20,18,0.42), rgba(20,20,18,0.82)), url('/photos/bess-winter.jpg')" }}
-      >
-        <div className="container rw-phero__inner">
-          <p className="rw-kicker rw-reveal">About</p>
-          <h1 className="rw-phero__display rw-reveal rw-d1">Built by <em>operators</em>.</h1>
-          <p className="rw-phero__lede rw-reveal rw-d2">
-            Rootwork Energy acquires underperforming utility-scale storage and
-            generation, repowers it, and operates it long term as an independent power
-            producer. Led by people who came up in the field, on the assets themselves.
+      {/* HERO */}
+      <section className="hero phero">
+        <Image
+          src="/photos/fleet-winter.jpg"
+          alt="Energy storage and transformer equipment in a snow-covered field."
+          fill
+          priority
+          sizes="100vw"
+          className="hero__bg"
+          style={{ objectFit: "cover" }}
+        />
+        <div className="hero__scrim" />
+        <div className="container hero__content">
+          <p className="kicker rw-reveal rw-d1">About</p>
+          <h1 className="display rw-reveal rw-d2">
+            Operators <em>first</em>.
+          </h1>
+          <p className="hero-sub rw-reveal rw-d3" style={{ marginBottom: 0 }}>
+            Rootwork was built by people who run energy assets for a living,
+            not by a deck looking for a team.
           </p>
         </div>
       </section>
 
-      <section className="rw-do">
-        <div className="container">
-          <div className="rw-split rw-reveal">
-            <div>
-              <p className="rw-statement__eyebrow" style={{ color: "var(--green)" }}>Our approach</p>
-              <h2 className="rw-split__t">Value is created in the <em>field</em>, not the spreadsheet.</h2>
-              <p className="lede">
-                We buy assets running below their potential, recover their output
-                through hands-on execution, and hold availability through disciplined
-                operations. We have done exactly this work in the field for a decade,
-                which is what tells us which assets can be brought back and what it takes
-                to do it.
-              </p>
-            </div>
-            <div className="rw-split__media">
-              <Image src="/photos/battery-modules.jpg" alt="Battery module rack with cooling fans inside a storage enclosure." fill sizes="(max-width:880px) 100vw, 50vw" style={{ objectFit: "cover" }} />
-            </div>
+      {/* FOUNDER (light) */}
+      <section className="band band--light">
+        <div className="container split">
+          <div>
+            <p className="kicker on-light rw-reveal">Founder &amp; CEO</p>
+            <h2 className="section-title on-light rw-reveal rw-d1">
+              James Payne
+            </h2>
+            <p className="body-copy rw-reveal rw-d2">
+              James Payne founded Rootwork Energy after more than a decade of
+              field-to-leadership experience across roughly 2.5 GW of
+              utility-scale storage and renewables in the US and Canada. His
+              background runs through operations leadership at utility-scale
+              storage and renewables operators, with depth in commissioning,
+              operations, and O&amp;M.
+            </p>
+            <p className="body-copy rw-reveal rw-d2">
+              That experience is the company&rsquo;s edge. Understanding what
+              makes assets fail, and what it takes to make them deliver, comes
+              from having run them through every season and every failure mode.
+              It is knowledge that cannot be hired in on a fundraising
+              timeline.
+            </p>
+          </div>
+          <div className="split__media rw-reveal rw-d2">
+            <Image
+              src="/photos/battery-modules.jpg"
+              alt="Battery module rack with cooling fans inside a storage enclosure."
+              fill
+              sizes="(max-width: 880px) 100vw, 50vw"
+              style={{ objectFit: "cover" }}
+            />
           </div>
         </div>
       </section>
 
-      <section className="rw-statement">
+      {/* COMPANY (dark closer) */}
+      <section className="band band--deep">
         <div className="container">
-          <div className="rw-split rw-split--rev rw-reveal">
-            <div>
-              <p className="rw-statement__eyebrow">Why operator-led</p>
-              <h2 className="rw-split__t" style={{ color: "var(--warm-white)" }}>We have run these systems <em>ourselves</em>.</h2>
-              <p className="lede lede--dark">
-                Our work is led by people who have commissioned, maintained, and
-                recovered utility-scale storage and renewable assets across North
-                America. Having run them in the field, we know what it takes to bring an
-                underperforming asset back, and exactly how to do it.
-              </p>
-            </div>
-            <div className="rw-split__media">
-              <Image src="/photos/substation-gis.jpg" alt="Gas-insulated switchgear and high-voltage interconnection at a commissioned substation." fill sizes="(max-width:880px) 100vw, 50vw" style={{ objectFit: "cover" }} />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="rw-do">
-        <div className="container">
-          <p className="rw-statement__eyebrow rw-reveal" style={{ color: "var(--green)" }}>What sets us apart</p>
-          <h2 className="rw-do__title rw-reveal rw-d1" style={{ marginBottom: "1.4rem" }}>
-            Execution over <em>assumptions</em>.
+          <p className="kicker rw-reveal">The company</p>
+          <h2 className="section-title rw-reveal rw-d1">
+            An IPP built to own what it fixes.
           </h2>
-          <p className="lede rw-reveal rw-d2" style={{ marginBottom: "1.8rem" }}>
-            Field reality over the spreadsheet. We measure ourselves by what an asset
-            actually delivers, season after season.
+          <p className="body-copy rw-reveal rw-d2">
+            Rootwork Energy is an operator-led independent power producer,
+            organized as a Delaware LLC and building toward its first
+            acquisitions. The model is to acquire underperforming,
+            interconnection-capable energy assets, restore them through
+            proprietary repower execution, and hold them long term, with
+            commissioning, operations, and maintenance self-performed on the
+            assets Rootwork owns.
           </p>
-          <Link href="/capabilities" className="textlink on-light rw-reveal rw-d3">See our capabilities →</Link>
-        </div>
-      </section>
-
-      <section className="rw-cta">
-        <div className="container">
-          <div className="rw-cta__row rw-reveal">
-            <h2 className="rw-cta__title">Talk to an operator.</h2>
-            <a className="rw-cta__mail" href={`mailto:${EMAIL}`}>{EMAIL}</a>
-          </div>
+          <Link className="btn rw-reveal rw-d2" href="/contact" style={{ marginTop: "2.4rem" }}>
+            Talk to Rootwork
+          </Link>
         </div>
       </section>
     </main>
