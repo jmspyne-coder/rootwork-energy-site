@@ -10,7 +10,7 @@ export const NAV = [
   { href: "/", label: "Home" },
   { href: "/approach", label: "Approach" },
   { href: "/intelligence", label: "Intelligence" },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "Who we are" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -18,7 +18,7 @@ export const FOOTER_NAV = [
   { href: "/", label: "Home" },
   { href: "/approach", label: "Approach" },
   { href: "/intelligence", label: "Intelligence" },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "Who we are" },
   { href: "/contact", label: "Contact" },
 ];
 

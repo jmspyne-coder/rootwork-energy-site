@@ -593,3 +593,89 @@ body::after {
 @media (max-width: 430px) {
   .display { font-size: clamp(2.2rem, 10.5vw, 3rem); letter-spacing: -0.024em; }
 }
+
+/* ============================================================
+   v4 — typographic heroes, evidence plates, media splits
+   ============================================================ */
+.hero--chart {
+  background:
+    repeating-linear-gradient(90deg, rgba(236,233,225,0.035) 0 1px, transparent 1px 72px),
+    repeating-linear-gradient(0deg, rgba(236,233,225,0.030) 0 1px, transparent 1px 72px),
+    radial-gradient(120% 90% at 18% 0%, #262521 0%, var(--charcoal-deep) 58%);
+}
+.hero--chart .hero__content { max-width: 940px; }
+.phero--chart { min-height: clamp(430px, 58vh, 640px); }
+.phero--chart .display { font-size: clamp(2.7rem, 5.2vw, 4.6rem); max-width: 20ch; }
+.phero--chart .hero__content { padding-block: clamp(4rem, 9vh, 6rem); }
+
+/* Evidence plate: small, sharp field photography with instrument caption */
+.plate { margin: 0; max-width: 560px; }
+.plate__frame {
+  position: relative;
+  border: 1px solid var(--border-light);
+  outline: 1px solid rgba(42,42,38,0.9);
+  outline-offset: 4px;
+  overflow: hidden;
+}
+.band--dark .plate__frame, .band--deep .plate__frame {
+  border-color: var(--border-dark);
+  outline-color: rgba(236,233,225,0.35);
+}
+.plate__frame img { display: block; width: 100%; height: auto; filter: saturate(0.88) contrast(1.07); }
+.plate__frame::after { content: ""; position: absolute; inset: 0; background: rgba(42,42,38,0.08); pointer-events: none; }
+.plate__cap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin-top: 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+}
+.band--dark .plate__cap, .band--deep .plate__cap { color: var(--muted-dark); }
+.plate__cap::before { content: ""; width: 22px; height: 1px; background: var(--green); transform: translateY(-3px); }
+
+/* Media split: editorial column + plate, rule-anchored, no floating boxes */
+.media-split {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+  align-items: start;
+  border-top: 1px solid var(--border-light);
+  padding-top: clamp(2.2rem, 4vw, 3.4rem);
+}
+.band--dark .media-split, .band--deep .media-split { border-top-color: var(--border-dark); }
+.media-split--flip { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+.media-split--flip .plate { order: -1; }
+.media-split .plate { justify-self: end; width: 100%; }
+.media-split--flip .plate { justify-self: start; }
+@media (max-width: 860px) {
+  .media-split, .media-split--flip { grid-template-columns: 1fr; }
+  .media-split--flip .plate { order: 0; }
+  .media-split .plate { justify-self: start; }
+}
+
+/* Statement band: oversized serif claim on dark, no photo dependency */
+.statement {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.9rem, 3.6vw, 3.1rem);
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  color: var(--bone);
+  max-width: 26ch;
+  margin: 0;
+}
+.statement em { font-style: italic; color: var(--green-light); }
+
+/* Ledger on dark bands */
+.ledger--dark { border-top-color: var(--bone); }
+.ledger--dark .ledger__row { border-bottom-color: var(--border-dark); }
+.ledger--dark .ledger__row:last-child { border-bottom-color: var(--bone); }
+.ledger--dark .ledger__num { color: var(--muted-dark); }
+.ledger--dark .ledger__row:hover .ledger__num { color: var(--green-light); }
+.ledger--dark .ledger__title { color: var(--bone); }
+.ledger--dark .ledger__body { color: var(--muted-dark); }

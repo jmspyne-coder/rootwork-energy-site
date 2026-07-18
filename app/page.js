@@ -25,17 +25,7 @@ export default function Home() {
   return (
     <main>
       {/* HERO — dark, full-bleed photo, Ken Burns */}
-      <section className="hero">
-        <Image
-          src="/photos/bess-row.jpg"
-          alt="Rows of utility-scale battery storage enclosures receding to the horizon."
-          fill
-          priority
-          sizes="100vw"
-          className="hero__bg"
-          style={{ objectFit: "cover", objectPosition: "center 40%" }}
-        />
-        <div className="hero__scrim" />
+      <section className="hero hero--chart">
         <div className="container hero__content">
           <p className="kicker rw-reveal rw-d1">Operator-led. Built to recover.</p>
           <h1 className="display rw-reveal rw-d2">
@@ -105,20 +95,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PHOTOBAND — full-bleed statement */}
-      <section className="photoband">
-        <Image
-          src="/photos/substation-gis.jpg"
-          alt="High-voltage circuit breaker with radiating bushings at a grid interconnection."
-          fill
-          sizes="100vw"
-          className="photoband__img"
-          style={{ objectPosition: "center 30%" }}
-        />
-        <div className="photoband__scrim" />
-        <div className="container photoband__inner">
-          <p className="photoband__t rw-reveal">
-            Queue position is a finite asset that cannot be manufactured.
+      {/* STATEMENT — dark claim band */}
+      <section className="band band--deep">
+        <div className="container">
+          <p className="statement rw-reveal">
+            Queue position is a finite asset that cannot be
+            <em> manufactured</em>.
           </p>
         </div>
       </section>
@@ -177,31 +159,34 @@ export default function Home() {
       <section className="band band--deep">
         <div className="container split">
           <div>
-            <p className="kicker rw-reveal">Credibility</p>
+            <p className="kicker rw-reveal">Who we are</p>
             <h2 className="section-title rw-reveal rw-d1">
               Built by operators, not spreadsheets.
             </h2>
             <p className="body-copy rw-reveal rw-d2">
-              Rootwork is led by James Payne, with more than a decade of
-              field-to-leadership experience across roughly 2.5 GW of
-              utility-scale storage and renewables in the US and Canada,
-              spanning commissioning, operations, and O&amp;M. Understanding
-              what makes assets fail is scar-tissue knowledge. No amount of
-              capital replicates it on a fundraising timeline.
+              Rootwork was built by people who run energy assets for a living.
+              Our leadership carries more than a decade of field-to-leadership
+              experience across roughly 2.5 GW of utility-scale storage and
+              renewables in the US and Canada, spanning commissioning,
+              operations, and O&amp;M. Understanding what makes assets fail is
+              scar-tissue knowledge. No amount of capital replicates it on a
+              fundraising timeline.
             </p>
             <Link href="/about" className="textlink">
-              About Rootwork →
+              Who we are →
             </Link>
           </div>
-          <div className="split__media rw-reveal rw-d2" style={{ aspectRatio: "16/10" }}>
-            <Image
-              src="/photos/commissioning-field.jpg"
-              alt="Field commissioning work at a utility-scale substation."
-              fill
-              sizes="(max-width: 880px) 100vw, 50vw"
-              style={{ objectFit: "cover", objectPosition: "center 20%" }}
-            />
-          </div>
+          <figure className="plate rw-reveal rw-d2">
+            <div className="plate__frame">
+              <Image
+                src="/photos/commissioning-field.jpg"
+                alt="Field commissioning work at a utility-scale substation."
+                width={640}
+                height={480}
+              />
+            </div>
+            <figcaption className="plate__cap">Field / Commissioning</figcaption>
+          </figure>
         </div>
       </section>
     </main>
