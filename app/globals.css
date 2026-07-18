@@ -710,6 +710,15 @@ img {
   flex-direction: column;
   flex: 1;
 }
+/* Text-only cards have no photo, so their content is shorter than the
+   photo cards they share a row with. Center it vertically so the card
+   reads as intentional instead of leaving an empty bottom. */
+.cap-card:not(:has(.cap-card__photo)) .cap-card__body {
+  justify-content: center;
+}
+.cap-card--wide .cap-card__body {
+  justify-content: flex-start;
+}
 .cap-card__stat {
   display: flex;
   align-items: baseline;
