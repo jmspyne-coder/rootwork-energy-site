@@ -1,12 +1,15 @@
 "use client";
 import { useEffect } from "react";
-import { usePathname } from "next/navigation";
 
+// Fade-up on first visibility; fires once per element. Also lights the
+// heatmap grid (staggered per-cell timing is set inline on each cell).
 export default function Reveal() {
-  const pathname = usePathname();
   useEffect(() => {
-    const els = Array.from(document.querySelectorAll(".rw-reveal:not(.is-in)"));
-    if (!("IntersectionObserver" in window)) {
+    const els = Array.from(
+      document.querySelectorAll(".reveal:not(.is-in), .heatmap:not(.is-in)")
+    );
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce || !("IntersectionObserver" in window)) {
       els.forEach((e) => e.classList.add("is-in"));
       return;
     }
@@ -19,10 +22,10 @@ export default function Reveal() {
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0.08 }
     );
     els.forEach((e) => io.observe(e));
     return () => io.disconnect();
-  }, [pathname]);
+  }, []);
   return null;
 }
