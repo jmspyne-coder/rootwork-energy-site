@@ -335,17 +335,17 @@ export default function Home() {
         <div className="container">
           <div className="two-col two-col--wide reveal">
             <div>
-              <p className="kicker">About</p>
+              <p className="kicker">Who We Are</p>
               <h2 className="lead">
                 Built in the field<span className="green">,</span> not in a
                 conference room<span className="green">.</span>
               </h2>
               <div className="body-copy">
                 <p>
-                  Rootwork Energy was founded by James Payne after a decade
+                  Rootwork Energy was built by operators who spent a decade
                   leading utility-scale BESS and renewables operations across the
-                  United States and Canada, from field technician to O&amp;M
-                  Director responsible for gigawatt-scale portfolios.
+                  United States and Canada, from field technician roles through
+                  O&amp;M Director responsibility for gigawatt-scale portfolios.
                 </p>
                 <p>
                   That field experience is the irreplaceable input. The
@@ -357,29 +357,19 @@ export default function Home() {
                 <p>
                   Rootwork exists because the gap between how assets are built
                   and how they need to be run is growing, and bridging it
-                  requires someone who&rsquo;s done both.
+                  requires a team that&rsquo;s done both.
                 </p>
               </div>
             </div>
 
             <div className="about-facts">
               <div className="fact">
-                <div className="fact__label">
-                  Years in utility-scale operations
-                </div>
-                <div className="fact__val">10+</div>
+                <div className="fact__label">Collective field experience</div>
+                <div className="fact__val">10+ years</div>
               </div>
               <div className="fact">
-                <div className="fact__label">
-                  Prior: O&amp;M Director, RES Americas
-                </div>
-                <div className="fact__val">2018&ndash;2024</div>
-              </div>
-              <div className="fact">
-                <div className="fact__label">
-                  Prior: Operations Director, esVolta
-                </div>
-                <div className="fact__val">2024&ndash;2025</div>
+                <div className="fact__label">Operational scope</div>
+                <div className="fact__val">U.S. &amp; Canada</div>
               </div>
               <div className="fact">
                 <div className="fact__label">Headquarters</div>
@@ -398,7 +388,7 @@ export default function Home() {
             <h2>
               The thesis is fundable.
               <br />
-              <span className="dim">The operator is proven.</span>
+              <span className="dim">The team is proven.</span>
             </h2>
             <p className="investors__body">
               Rootwork is raising capital to acquire its first tranche of
