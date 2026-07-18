@@ -408,7 +408,7 @@ export default function Home() {
               capital partners who understand that the best energy acquisitions
               start with the best information.
             </p>
-            <a href="mailto:james@rootwork.energy" className="btn btn--primary">
+            <a href="mailto:info@rootwork.energy" className="btn btn--primary">
               Start a Conversation <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
