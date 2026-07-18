@@ -1,0 +1,45 @@
+{
+  "directive": "2026-07-16-site-rebuild-ai-spine",
+  "repo": "jmspyne-coder/rootwork-energy-site",
+  "branch": "feat/site-rebuild-ai-spine",
+  "base": "origin/main @ aa68371",
+  "inventory": {
+    "default_branch": "main",
+    "framework": "Next.js ^15 (App Router), React 19",
+    "static_export": "confirmed: next.config.mjs output:'export', images unoptimized",
+    "deploy": ".github/workflows/deploy.yml -> GitHub Pages on push to main (untouched)",
+    "pages_before": ["/", "/about", "/capabilities", "/contact", "/investors", "/platform", "/services"],
+    "live_code_root": "app/** (top-level route dupes are stale relics of an old flat layout)",
+    "site_config": "app/site-config.js is live (root site-config.js is a stale dupe); GA_ID='' (GA disabled, untouched)",
+    "logo_assets": ["public/wordmark-light-hd.png (2754x594, used in nav+footer)", "public/wordmark-light.png", "public/wordmark-dark.png"],
+    "hero_photos": "13 photos under public/photos/ (bess-row, bess-array, substation-*, controls-*, commissioning-field, fleet-winter, battery-modules, bess-winter)",
+    "directive_log": "absent in site repo -> log line goes to workspace DIRECTIVE_LOG via micro-PR",
+    "surprises": [
+      "Open PR #2 (feat/intelligence-narrative) overlaps and is superseded by this rebuild; left open for Jim to close",
+      "origin/main moved during inventory (Jupiter unwind content PR #3 merged); branch cut from aa68371",
+      "Current site email is info@rootwork.energy; directive copy deck specifies james@rootwork.energy -> deck wins, flagged in PR",
+      "Fonts in repo are Fraunces + Hanken Grotesk; directive specifies Source Serif 4 + Inter -> swapped via @fontsource packages"
+    ]
+  },
+  "artifacts": {
+    "package.json": "DONE — @fontsource/source-serif-4 + @fontsource/inter added; fraunces + hanken-grotesk removed",
+    "app/globals.css": "DONE — ground-up rewrite on canon tokens; kept proven Ken Burns/scrim/reveal/grain machinery",
+    "app/layout.js": "DONE — font imports swapped, title template '%s | Rootwork Energy', GA block preserved (GA_ID still '')",
+    "app/components/Nav.js": "DONE — new IA nav, wordmark 264px at all widths",
+    "app/components/Footer.js": "DONE — wordmark 320px, tagline, new footer nav",
+    "app/site-config.js": "DONE — NAV/FOOTER_NAV Home/Approach/Intelligence/About/Contact, EMAIL james@rootwork.energy, shared STATS with PR-review note",
+    "app/contact/page.js": "DONE — built first; first static build passed on it",
+    "app/page.js": "DONE — Home: hero + 4 bands per copy deck",
+    "app/approach/page.js": "DONE — The Thesis: demand era, the bleed, model in depth, asset scope, closer",
+    "app/intelligence/page.js": "DONE — The Platform: what it is, the insight, what it produces, directional stats; no metric names",
+    "app/about/page.js": "DONE — bio + company + CTA",
+    "route_removals": "DONE — app/capabilities, app/investors, app/platform, app/services removed; stale top-level dupes removed (route dirs, components/, page.js, 'page (3).js', layout.js, globals.css, site-config.js)",
+    "verification": {
+      "build": "PASS — next build static export, 5 routes + _not-found + icons",
+      "link_check": "PASS — all internal hrefs in out/*.html resolve to /, /about, /approach, /contact, /intelligence + existing assets",
+      "banned_strings": "PASS — zero hits in all rendered text (html/js/css); one whole-word grep hit is 3 bytes of compressed pixel data inside unmodified stock photo commissioning-field.jpg (context: raw JPEG binary, not text)",
+      "em_dash": "PASS — zero em/en dashes in built HTML",
+      "screenshots": "runs/screens/*.png — 5 pages x desktop 1440 + mobile 390, full-page, via CDP viewport emulation (plain --window-size clamps to Chrome's ~500px min window width on Windows and crops; do not trust it for mobile)"
+    }
+  }
+}

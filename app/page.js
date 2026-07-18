@@ -1,117 +1,192 @@
 import Link from "next/link";
 import Image from "next/image";
-import { EMAIL } from "./site-config";
+import { STATS } from "./site-config";
 
-const PILLARS = [
-  { n: "01", t: "Operator-led origination", b: "We identify distressed assets before they hit the market using proprietary performance diagnostics built from field experience across 2.5 GW of operating assets." },
-  { n: "02", t: "Recovery, not speculation", b: "Every acquisition starts with an existing interconnection and a known performance gap. We don't build from scratch. We buy what's broken and fix what others couldn't." },
-  { n: "03", t: "Long-term ownership", b: "We hold and operate. Revenue compounds from day one through existing power purchase agreements and merchant exposure, amplified by the performance recovery we deliver." },
+const MODEL = [
+  {
+    title: "Screen",
+    body: "Proprietary analytics surface assets whose performance gap the market has not priced.",
+  },
+  {
+    title: "Acquire",
+    body: "Distressed entry on interconnection-capable assets, with queue position as the embedded option.",
+  },
+  {
+    title: "Repower",
+    body: "Proprietary repower execution restores delivered performance and revenue capture.",
+  },
+  {
+    title: "Operate & Hold",
+    body: "Long-term ownership by the operators who fixed it, compounding the intelligence with every asset.",
+  },
 ];
 
 export default function Home() {
   return (
     <main>
-      {/* HERO — full-bleed BESS background */}
-      <section className="rw-hero--photo">
-        <Image
-          src="/photos/bess-row.jpg"
-          alt="Rows of utility-scale battery storage enclosures receding to the horizon."
-          fill
-          priority
-          sizes="100vw"
-          className="rw-hero__bg"
-          style={{ objectFit: "cover", objectPosition: "center 40%" }}
-        />
-        <div className="rw-hero__scrim" />
-        <div className="container rw-hero__content">
-          <p className="rw-kicker rw-reveal rw-d1">Acquire · Repower · Operate</p>
-          <h1 className="rw-display rw-reveal rw-d2">
-            Operator‑led.<br />Built to <em>recover</em>.
+      {/* HERO — dark, full-bleed photo, Ken Burns */}
+      <section className="hero hero--chart">
+        <div className="container hero__content">
+          <p className="kicker rw-reveal rw-d1">Operator-led. Built to recover.</p>
+          <h1 className="display rw-reveal rw-d2">
+            The grid is short on power. The fleet built to supply it is
+            <em> underperforming</em>.
           </h1>
-          <p className="rw-hero__thesis rw-reveal rw-d3">
-            Rootwork Energy acquires underperforming battery storage and power
-            generation assets at distressed valuations, repowers them through
-            proprietary operational diagnostics, and holds them long term as an
-            independent power producer. We don't speculate on sites or technologies. We
-            buy broken assets with existing interconnections and fix them, because we
-            have spent a decade doing exactly that for other owners.
+          <p className="hero-sub rw-reveal rw-d3">
+            Rootwork Energy acquires underperforming, interconnection-capable
+            energy assets, restores them through proprietary repower execution,
+            and holds them for the demand era AI is creating.
           </p>
-          <div className="rw-actions rw-reveal rw-d4">
-            <Link className="rw-btn" href="/investors">For investors</Link>
-            <Link className="rw-btn rw-btn--ghost" href="/about">Learn more</Link>
+          <div className="actions rw-reveal rw-d4">
+            <Link className="btn" href="/approach">
+              Read the thesis
+            </Link>
+            <Link className="btn btn--ghost" href="/contact">
+              Contact
+            </Link>
+          </div>
+        </div>
+        <div className="telemetry" aria-hidden="true">
+          <div className="container">
+            <svg viewBox="0 0 1200 150" preserveAspectRatio="none" style={{ height: "clamp(80px, 12vh, 150px)" }}>
+              <path
+                className="t-bleed"
+                d="M0,34 L1200,34 L1200,34 C1050,34 980,34 940,34 C860,34 800,96 700,104 C600,112 520,88 430,72 C340,56 240,40 120,35 C80,34 40,34 0,34 Z"
+              />
+              <line className="t-obligated" x1="0" y1="34" x2="1200" y2="34" />
+              <path
+                className="t-delivered"
+                d="M0,34 C40,34 80,34 120,35 C240,40 340,56 430,72 C520,88 600,112 700,104 C800,96 860,34 940,34 C980,34 1050,34 1200,34"
+              />
+              <circle className="t-dot" cx="940" cy="34" r="3" />
+              <text className="t-label" x="0" y="22">OBLIGATED</text>
+              <text className="t-label" x="560" y="134">DELIVERED</text>
+              <text className="t-label t-label--green" x="920" y="22">REPOWERED</text>
+            </svg>
           </div>
         </div>
       </section>
 
-      {/* THESIS + dispatch signature */}
-      <section className="rw-statement">
-        <div className="container rw-dispatch-row">
+      {/* BAND 1 — Why now (light, editorial two-column) */}
+      <section className="band band--light">
+        <div className="container duo">
           <div>
-            <p className="rw-statement__eyebrow rw-reveal">The thesis</p>
-            <p className="rw-statement__text rw-reveal rw-d1">
-              The gap between the proforma and the megawatt is <span className="hl">execution</span>.
+            <p className="kicker on-light rw-reveal">Why now</p>
+            <h2 className="section-title on-light rw-reveal rw-d1">
+              AI changed the demand curve.
+            </h2>
+          </div>
+          <div className="duo__body">
+            <p className="body-copy rw-reveal rw-d2">
+              Data-center load growth is the largest new source of electricity
+              demand the US grid has seen in decades, and interconnection
+              queues stretch years. New capacity cannot be built fast enough.
             </p>
-            <p className="rw-statement__sub rw-reveal rw-d2">
-              Assets deliver their model only when someone commissions the system
-              correctly, holds availability through every season, and chases the
-              warranty scope no one else will. That gap is where value is lost, and it
-              is exactly where we buy. The distress others cannot see is the distress we
-              acquire and recover.
+            <p className="pull rw-reveal rw-d2">
+              The fastest megawatt to market is the one already connected and
+              underperforming.
+            </p>
+            <p className="body-copy rw-reveal rw-d2">
+              Queue position is a finite asset that cannot be manufactured, and
+              every underperforming plant that holds one is future capacity
+              hiding in plain sight.
             </p>
           </div>
-          <aside className="rw-hero__data rw-reveal rw-d2">
-            <div className="rw-dispatch">
-              <svg viewBox="0 0 520 360" role="img" aria-label="Stated dispatch versus actual field dispatch">
-                <defs>
-                  <linearGradient id="rwGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#88B06C" stopOpacity="0.30" />
-                    <stop offset="100%" stopColor="#88B06C" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-                <path className="rw-dispatch__model" d="M16 196 L504 120" />
-                <path className="rw-dispatch__fill" d="M16 196 C70 184 104 188 150 214 C196 240 220 300 266 296 C312 292 330 232 380 244 C430 256 462 196 504 188 L504 340 L16 340 Z" />
-                <path className="rw-dispatch__actual" d="M16 196 C70 184 104 188 150 214 C196 240 220 300 266 296 C312 292 330 232 380 244 C430 256 462 196 504 188" />
-                <circle className="rw-dispatch__dot" cx="266" cy="296" r="4" style={{ animationDelay: "2.4s" }} />
-                <circle className="rw-dispatch__dot" cx="504" cy="188" r="4" style={{ animationDelay: "2.9s" }} />
-                <text className="rw-dispatch__label" x="430" y="108" fill="rgba(236,233,225,0.5)">MODEL</text>
-                <text className="rw-dispatch__label" x="120" y="332" fill="#88B06C">FIELD</text>
-              </svg>
-            </div>
-            <dl className="rw-readouts">
-              <div><dt>Markets</dt><dd>CAISO · ERCOT</dd></div>
-              <div><dt>Field</dt><dd>10+ years</dd></div>
-              <div><dt>Model</dt><dd>Acquire · Hold</dd></div>
-            </dl>
-          </aside>
         </div>
       </section>
 
-      {/* HOW OPERATOR-LED OWNERSHIP COMPOUNDS */}
-      <section className="rw-do">
+      {/* STATEMENT — dark claim band */}
+      <section className="band band--deep">
         <div className="container">
-          <div className="rw-do__head rw-reveal">
-            <h2 className="rw-do__title">Acquire, repower, <em>hold</em>.</h2>
-            <Link href="/investors" className="textlink on-light">For investors →</Link>
+          <p className="statement rw-reveal">
+            Queue position is a finite asset that cannot be
+            <em> manufactured</em>.
+          </p>
+        </div>
+      </section>
+
+      {/* BAND 2 — The edge (dark) */}
+      <section className="band band--dark">
+        <div className="container">
+          <p className="kicker rw-reveal">The edge</p>
+          <h2 className="section-title rw-reveal rw-d1">
+            We find the bleed before the market prices it.
+          </h2>
+          <p className="body-copy rw-reveal rw-d2">
+            Storage assets rarely fail outright. They bleed: chemistry,
+            inverters, software, dispatch, and compliance failures compound
+            until the drag defines the asset&rsquo;s economics, often before the
+            owner sees it clearly. Rootwork built a proprietary screening
+            platform that measures true delivered performance across the
+            operating fleet and ranks assets by recoverable value. That is
+            where distressed entry prices come from.
+          </p>
+          <div className="stats rw-reveal rw-d2">
+            {STATS.map((s) => (
+              <div key={s.value} className="stat">
+                <span className="stat__value">{s.value}</span>
+                <span className="stat__label">{s.label}</span>
+              </div>
+            ))}
           </div>
-          <div className="rw-grid3 rw-reveal rw-d1">
-            {PILLARS.map((p) => (
-              <article key={p.n} className="rw-pill">
-                <span className="rw-pill__n">{p.n}</span>
-                <h3 className="rw-pill__t">{p.t}</h3>
-                <p className="rw-pill__b">{p.b}</p>
+          <p className="stats-note rw-reveal rw-d3">Directional</p>
+        </div>
+      </section>
+
+      {/* BAND 3 — The model (light) */}
+      <section className="band band--light">
+        <div className="container">
+          <p className="kicker on-light rw-reveal">The model</p>
+          <h2 className="section-title on-light rw-reveal rw-d1">
+            Screen. Acquire. Repower. Operate &amp; Hold.
+          </h2>
+          <div className="ledger rw-reveal rw-d2">
+            {MODEL.map((m, i) => (
+              <article key={m.title} className="ledger__row">
+                <span className="ledger__num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="ledger__title">{m.title}</h3>
+                <p className="ledger__body">{m.body}</p>
               </article>
             ))}
           </div>
+          <Link href="/approach" className="textlink on-light">
+            Read the thesis →
+          </Link>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="rw-cta">
-        <div className="container">
-          <div className="rw-cta__row rw-reveal">
-            <h2 className="rw-cta__title">Talk to an operator.</h2>
-            <a className="rw-cta__mail" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+      {/* BAND 4 — Credibility (dark closer) */}
+      <section className="band band--deep">
+        <div className="container split">
+          <div>
+            <p className="kicker rw-reveal">Who we are</p>
+            <h2 className="section-title rw-reveal rw-d1">
+              Built by operators, not spreadsheets.
+            </h2>
+            <p className="body-copy rw-reveal rw-d2">
+              Rootwork was built by people who run energy assets for a living.
+              Our leadership carries more than a decade of field-to-leadership
+              experience across roughly 2.5 GW of utility-scale storage and
+              renewables in the US and Canada, spanning commissioning,
+              operations, and O&amp;M. Understanding what makes assets fail is
+              scar-tissue knowledge. No amount of capital replicates it on a
+              fundraising timeline.
+            </p>
+            <Link href="/about" className="textlink">
+              Who we are →
+            </Link>
           </div>
+          <figure className="plate rw-reveal rw-d2">
+            <div className="plate__frame">
+              <Image
+                src="/photos/commissioning-field.jpg"
+                alt="Field commissioning work at a utility-scale substation."
+                width={640}
+                height={480}
+              />
+            </div>
+            <figcaption className="plate__cap">Field / Commissioning</figcaption>
+          </figure>
         </div>
       </section>
     </main>

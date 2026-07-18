@@ -18,7 +18,7 @@ export default function Footer() {
             />
           </Link>
           <p className="footer__tagline">
-            Operator‑led independent power producer. Built to recover.
+            Operator-led independent power producer. Built to recover.
           </p>
         </div>
         <div className="footer__right">
