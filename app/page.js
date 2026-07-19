@@ -2,12 +2,16 @@ import LifecycleNavigator from "./components/LifecycleNavigator";
 import Heatmap from "./components/Heatmap";
 import StatCounter from "./components/StatCounter";
 import Flywheel from "./components/Flywheel";
+import { EMAIL } from "./site-config";
 
 // Operating capabilities, self-performed across Rootwork's own portfolio.
 // Grouped to the lifecycle spine: Screen & Acquire, Repower, Operate & Hold.
+// Each cluster leads with a field photograph shot for that stage.
 const CAPABILITY_GROUPS = [
   {
     stage: "Screen & Acquire",
+    photo: "/img/cap-construction.webp",
+    alt: "Foundation and civil work underway on a late-stage development site.",
     cards: [
       {
         title: "Acquisition and Origination",
@@ -21,6 +25,8 @@ const CAPABILITY_GROUPS = [
   },
   {
     stage: "Repower",
+    photo: "/img/cap-commissioning.webp",
+    alt: "Field commissioning at dusk on live high-voltage equipment.",
     cards: [
       {
         title: "Commissioning Management",
@@ -34,6 +40,8 @@ const CAPABILITY_GROUPS = [
   },
   {
     stage: "Operate & Hold",
+    photo: "/img/cap-operations.webp",
+    alt: "A storage yard held to spec through winter operating conditions.",
     cards: [
       {
         title: "Operations and Maintenance",
@@ -49,13 +57,6 @@ const CAPABILITY_GROUPS = [
       },
     ],
   },
-];
-
-const BAND_PHOTOS = [
-  { src: "/img/band-substation.webp", alt: "Crews working a high-voltage substation bay in the field." },
-  { src: "/img/hero-bess-row.webp", alt: "Rows of utility-scale battery storage modules." },
-  { src: "/img/cap-commissioning.webp", alt: "Field commissioning at dusk on live equipment." },
-  { src: "/img/cap-operations.webp", alt: "Storage controls and cabinets under winter operating conditions." },
 ];
 
 export default function Home() {
@@ -192,14 +193,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===================== PHOTO BAND ===================== */}
-      <section className="photo-strip" aria-label="Field operations">
-        {BAND_PHOTOS.map((p) => (
-          <figure key={p.src} className="photo-strip__item">
-            <img src={p.src} alt={p.alt} loading="lazy" />
-            <span className="photo-strip__scrim" aria-hidden="true" />
-          </figure>
-        ))}
+      {/* ===================== STATEMENT BAND ===================== */}
+      <section className="statement-band" aria-label="Field operations">
+        <img
+          src="/img/band-substation.webp"
+          alt="A crew energizing a high-voltage substation bay in the field."
+          className="statement-band__img"
+          loading="lazy"
+        />
+        <span className="statement-band__scrim" aria-hidden="true" />
+        <div className="container statement-band__inner">
+          <p className="statement-band__line">
+            Understanding comes from the field, not the spreadsheet.
+          </p>
+        </div>
       </section>
 
       {/* ===================== THE LIFECYCLE ===================== */}
@@ -235,10 +242,14 @@ export default function Home() {
           <div className="cap-clusters">
             {CAPABILITY_GROUPS.map((group) => (
               <div key={group.stage} className="cap-cluster">
-                <div className="cap-cluster__head">
-                  <span className="cap-cluster__mark" aria-hidden="true" />
-                  <h3 className="cap-cluster__title">{group.stage}</h3>
-                </div>
+                <figure className="cap-cluster__photo">
+                  <img src={group.photo} alt={group.alt} loading="lazy" />
+                  <span className="cap-cluster__photo-scrim" aria-hidden="true" />
+                  <div className="cap-cluster__head">
+                    <span className="cap-cluster__mark" aria-hidden="true" />
+                    <h3 className="cap-cluster__title">{group.stage}</h3>
+                  </div>
+                </figure>
                 <div className="cap-cluster__grid">
                   {group.cards.map((c) => (
                     <article key={c.title} className="cap-card">
@@ -341,6 +352,35 @@ export default function Home() {
                 <div className="fact__val">Rootwork Energy LLC</div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===================== CAPITAL PARTNERS ===================== */}
+      <section id="capital" className="section section--tight investors">
+        <div className="container">
+          <div className="investors__inner reveal">
+            <p className="kicker">For capital partners</p>
+            <h2>
+              A thesis built on data.
+              <br />
+              <span className="dim">A team built on operations.</span>
+            </h2>
+            <p className="investors__body">
+              The screen already covers 21 GW of interconnected storage and has
+              flagged $244M in annual revenue at risk across underperforming
+              assets. That is the origination pipeline: interconnection-capable
+              BESS available at distressed valuations, each with a field-validated
+              repower path.
+            </p>
+            <p className="investors__body">
+              We are raising to acquire the first tranche. If the thesis fits your
+              mandate, the next step is a 30-minute call where we walk the current
+              pipeline view and where you would come in.
+            </p>
+            <a href={`mailto:${EMAIL}`} className="btn btn--primary">
+              Start a conversation <span aria-hidden="true">&rarr;</span>
+            </a>
           </div>
         </div>
       </section>

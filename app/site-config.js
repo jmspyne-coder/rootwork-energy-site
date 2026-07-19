@@ -13,4 +13,5 @@ export const NAV = [
   { href: "#capabilities", label: "Capabilities" },
   { href: "#why-now", label: "Why Now" },
   { href: "#about", label: "About" },
+  { href: "#capital", label: "Capital" },
 ];
