@@ -5,7 +5,7 @@
 export const GA_ID = "";
 
 // Investor / capital-partner contact.
-export const EMAIL = "james@rootwork.energy";
+export const EMAIL = "info@rootwork.energy";
 
 // Single-page anchor navigation.
 export const NAV = [

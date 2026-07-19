@@ -1,56 +1,95 @@
 import LifecycleNavigator from "./components/LifecycleNavigator";
 import Heatmap from "./components/Heatmap";
+import ThesisFlywheel from "./components/ThesisFlywheel";
+import { EMAIL } from "./site-config";
 
-const CAPABILITIES = [
+// Hero proof stats — all verified against MotherDuck my_db (2026-07-19):
+//   21 GW  : SUM(total_mw) over v_cross_iso_distress_summary (CAISO 9,837 + ERCOT 11,253 = 21,090 MW)
+//   74%    : MW-weighted TDA across v_bess_tda_caiso_weighted + v_bess_tda_ercot_weighted (flat vector, 40 plants / 3,845 MW)
+//   $244M  : SUM(total_revenue_at_risk_k) over v_cross_iso_distress_summary (243,893k)
+const HERO_STATS = [
+  { val: "21 GW", label: "Capacity independently screened" },
+  { val: "74%", label: "Fleet true dispatch availability" },
+  { val: "$244M", label: "Annual revenue at risk identified" },
+];
+
+// Directional industry signal from the distress screen (public = directional).
+const SIGNAL = [
   {
-    title: "Fleet Intelligence & Origination",
-    stat: "2,400+",
-    statLabel: "assets screened",
-    body: "Independent performance benchmarking across the utility-scale BESS fleet. Continuous ingestion of EIA data, ISO dispatch patterns, and public filings to identify assets underdelivering relative to their market environment, before they enter a sale process.",
+    val: "1 in 4",
+    desc: "utility-scale BESS assets deliver less than 70% of their revenue potential relative to their dispatch environment",
   },
   {
-    title: "Underwriting & Deal Analysis",
-    stat: "Recovery-based",
-    statLabel: "valuation method",
-    body: "Every acquisition target modeled against real recovery cost, repower timeline, and dispatch-environment economics. Seller narratives and broker packaging replaced by independently derived performance data.",
+    val: "2–3×",
+    desc: "gap between reported availability and actual revenue capture across underperforming assets",
   },
   {
-    title: "Commissioning & Performance Recovery",
-    photo: "/img/cap-commissioning.webp",
-    alt: "Crews working live substation bus at dusk during commissioning.",
-    stat: "4.2 GWh",
-    statLabel: "commissioned",
-    body: "Utility-scale BESS commissioning across ERCOT, CAISO, and PJM. Equipment-level diagnosis (PCS, BMS, thermal, protection) and performance recovery for assets that never reached commercial operation or fell out of it.",
+    val: "Months",
+    desc: "of lead time between when degradation appears in the data and when an asset enters a sale process",
+  },
+];
+
+// Capabilities grouped into three clusters. Photo/no-photo is consistent
+// within each cluster (Execution carries the field photography, the others
+// are text-only) so the grid reads as intentional, not unfinished.
+const CAP_CLUSTERS = [
+  {
+    group: "Intelligence & Underwriting",
+    cards: [
+      {
+        title: "Fleet Intelligence & Origination",
+        body: "Independent performance benchmarking across the utility-scale BESS fleet. Continuous ingestion of EIA data, ISO dispatch patterns, and public filings to identify assets underdelivering relative to their market environment, before they enter a sale process.",
+      },
+      {
+        title: "Underwriting & Deal Analysis",
+        body: "Every acquisition target modeled against real recovery cost, repower timeline, and dispatch-environment economics. Seller narratives and broker packaging replaced by independently derived performance data.",
+      },
+    ],
   },
   {
-    title: "Construction Estimation",
-    photo: "/img/cap-construction.webp",
-    alt: "Foundation pour at a utility-scale construction site.",
-    stat: "Parametric",
-    statLabel: "field-validated models",
-    body: "Cost modeling for BESS yards, substations, MV collection, and auxiliary power systems. Field-validated against real construction outcomes. Purpose-built for repower scope, not greenfield assumptions.",
+    group: "Execution",
+    cards: [
+      {
+        title: "Commissioning & Performance Recovery",
+        photo: "/img/cap-commissioning.webp",
+        alt: "Crews working live substation bus at dusk during commissioning.",
+        body: "Utility-scale BESS commissioning across CAISO and ERCOT. Equipment-level diagnosis (PCS, BMS, thermal, protection) and performance recovery for assets that never reached commercial operation or fell out of it.",
+      },
+      {
+        title: "Construction Estimation",
+        photo: "/img/cap-construction.webp",
+        alt: "Foundation pour at a utility-scale construction site.",
+        body: "Parametric cost modeling for BESS yards, substations, MV collection, and auxiliary power systems, field-validated against real construction outcomes and purpose-built for repower scope, not greenfield assumptions.",
+      },
+      {
+        title: "Operations & Asset Management",
+        photo: "/img/cap-operations.webp",
+        alt: "Battery storage containers and pad-mount transformers in snow.",
+        body: "Full-lifecycle O&M with continuous performance monitoring and revenue optimization. Every asset operated feeds data back into the intelligence layer, so the platform gets sharper with every site in the portfolio.",
+      },
+    ],
   },
   {
-    title: "Operations & Asset Management",
-    photo: "/img/cap-operations.webp",
-    alt: "Battery storage containers and pad-mount transformers in snow.",
-    stat: "Long-term",
-    statLabel: "O&M capability",
-    body: "Full-lifecycle O&M with continuous performance monitoring and revenue optimization. Every asset operated feeds data back into the intelligence layer, the platform gets sharper with every site in the portfolio.",
+    group: "Compliance & Architecture",
+    cards: [
+      {
+        title: "NERC Compliance (GO/GOP)",
+        body: "Integrated compliance program built for owner-operators. Evidence production, self-certification, and audit readiness from a single operational layer, not bolted on as an afterthought.",
+      },
+      {
+        title: "AI-Augmented Operations",
+        body: "The operational layer runs on systematized field knowledge and continuous data intelligence, letting a small team operate at institutional scale.",
+      },
+    ],
   },
-  {
-    title: "NERC Compliance (GO/GOP)",
-    stat: "NERC",
-    statLabel: "GO/GOP program",
-    body: "Integrated compliance program built for owner-operators. Evidence production, self-certification, and audit readiness from a single operational layer, not bolted on as an afterthought.",
-  },
-  {
-    title: "AI-Augmented Operations",
-    stat: "Intelligence",
-    statLabel: "not headcount",
-    body: "The operational layer itself runs on systematized field knowledge and continuous data intelligence. A small team operating at institutional scale, not because of capital, but because of architecture.",
-    wide: true,
-  },
+];
+
+// Company-level operating scope (no personal names, no prior employers).
+const SCOPE = [
+  { label: "Model", val: "Screen · Acquire · Repower · Hold" },
+  { label: "Operating coverage", val: "United States & Canada" },
+  { label: "Asset focus", val: "Utility-scale storage & renewables" },
+  { label: "Structure", val: "Operator-led IPP" },
 ];
 
 export default function Home() {
@@ -73,132 +112,95 @@ export default function Home() {
               <span className="dim">before it&rsquo;s listed.</span>
             </h1>
             <p className="hero__sub">
-              Rootwork Energy builds independent performance intelligence on the
-              utility-scale storage fleet, identifying assets that are
-              financially underdelivering relative to their market environment.
-              We acquire them at distressed valuations, repower them with
-              field-proven operations, and hold long-term as an IPP.
+              Independent performance intelligence on the utility-scale storage
+              fleet. Acquire, repower, hold.
             </p>
             <div className="hero__ctas">
               <a href="#intelligence" className="btn btn--primary">
                 The Intelligence Edge <span aria-hidden="true">&rarr;</span>
               </a>
-              <a href="#investors" className="btn btn--ghost">
-                For Capital Partners
+              <a href="#investors" className="hero__link">
+                For capital partners
               </a>
             </div>
           </div>
         </div>
         <div className="hero__strip">
           <div className="container hero__strip-inner">
-            <div className="stat-block">
-              <span className="stat-block__val">2,400+</span>
-              <span className="stat-block__label">
-                Fleet Assets Under Intelligence
-              </span>
-            </div>
-            <div className="stat-block">
-              <span className="stat-block__val">4.2</span>
-              <span className="stat-block__label">
-                GWh Commissioned by Team
-              </span>
-            </div>
-            <div className="stat-block">
-              <span className="stat-block__val">ERCOT · CAISO · PJM</span>
-              <span className="stat-block__label">Markets</span>
-            </div>
+            {HERO_STATS.map((s) => (
+              <div className="stat-block" key={s.label}>
+                <span className="stat-block__val">{s.val}</span>
+                <span className="stat-block__label">{s.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ===================== INTELLIGENCE ===================== */}
       <section id="intelligence" className="section">
-        <div className="container">
-          <div className="two-col reveal">
-            <div>
-              <p className="kicker">What We See</p>
-              <h2 className="lead">
-                The fleet reports availability.
-                <br />
-                <span style={{ color: "var(--muted-dark)" }}>
-                  We measure what it actually earns.
-                </span>
-              </h2>
-              <div className="body-copy">
-                <p>
-                  An asset can report 95% availability and still capture a
-                  fraction of the revenue its dispatch environment should
-                  produce. The industry&rsquo;s standard metrics (availability,
-                  capacity factor, round-trip efficiency) describe the machine.
-                  They don&rsquo;t describe the business.
-                </p>
-                <p>
-                  Rootwork&rsquo;s intelligence layer independently benchmarks
-                  every utility-scale BESS asset against what it should deliver
-                  given its interconnection, market structure, and dispatch
-                  regime. The gap between potential and actual revenue delivery
-                  is the signal, and it&rsquo;s far wider than reported metrics
-                  suggest.
-                </p>
-                <p>
-                  Very few organizations are doing this systematically. Most
-                  acquisitions still rely on seller-provided data, broker
-                  narratives, and backward-looking financials. We derive our own
-                  view, and it tells a different story.
-                </p>
+        <div className="container reveal">
+          <div className="section-head">
+            <p className="kicker">The Edge</p>
+            <h2 className="lead">
+              The fleet reports availability.
+              <br />
+              <span style={{ color: "var(--muted-dark)" }}>
+                We measure what it actually earns.
+              </span>
+            </h2>
+          </div>
+
+          {/* Stat callouts first — the strongest content leads the section. */}
+          <div className="signal-grid">
+            {SIGNAL.map((s) => (
+              <div className="signal-card" key={s.val}>
+                <span className="signal-card__val">{s.val}</span>
+                <span className="signal-card__desc">{s.desc}</span>
               </div>
+            ))}
+          </div>
+
+          <div className="two-col intel-body">
+            <div className="body-copy">
+              <p>
+                An asset can report 95% availability and still capture a fraction
+                of the revenue its dispatch environment should produce. The
+                industry&rsquo;s standard metrics (availability, capacity factor,
+                round-trip efficiency) describe the machine. They don&rsquo;t
+                describe the business.
+              </p>
+              <p>
+                Rootwork&rsquo;s intelligence layer independently benchmarks every
+                utility-scale BESS asset against what it should deliver given its
+                interconnection, market structure, and dispatch regime. The gap
+                between potential and actual revenue delivery is the signal, and
+                it&rsquo;s far wider than reported metrics suggest.
+              </p>
+              <p>
+                Most acquisitions still rely on seller-provided data, broker
+                narratives, and backward-looking financials. We derive our own
+                view across CAISO and ERCOT, and it tells a different story.
+              </p>
             </div>
 
-            <div>
-              <div className="data-card">
-                <div className="data-card__head">
-                  <span className="data-card__title">
-                    Fleet Revenue Delivery — Illustrative
-                  </span>
-                  <span className="pulse pulse--amber" />
-                </div>
-                <Heatmap />
+            <div className="data-card">
+              <div className="data-card__head">
+                <span className="data-card__title">
+                  Fleet Revenue Delivery · Illustrative
+                </span>
+                <span className="pulse pulse--amber" />
               </div>
-
-              <div className="data-card">
-                <div className="data-card__head">
-                  <span className="data-card__title">What the Data Shows</span>
-                </div>
-                <div className="metric-row">
-                  <span className="metric-row__val">1 in 4</span>
-                  <span className="metric-row__desc">
-                    utility-scale BESS assets deliver less than 70% of their
-                    revenue potential relative to their dispatch environment
-                  </span>
-                </div>
-                <div className="metric-row">
-                  <span className="metric-row__val">2&ndash;3&times;</span>
-                  <span className="metric-row__desc">
-                    gap between reported availability and actual revenue capture
-                    across underperforming assets
-                  </span>
-                </div>
-                <div className="metric-row">
-                  <span className="metric-row__val">Months</span>
-                  <span className="metric-row__desc">
-                    of lead time between when performance degradation appears in
-                    data and when an asset enters a sale process
-                  </span>
-                </div>
-              </div>
+              <Heatmap />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===================== PHOTO BAND ===================== */}
-      <section className="photo-band">
+      {/* ===================== PHOTO BAND (silent divider) ===================== */}
+      <section className="photo-band" aria-hidden="true" role="presentation">
         <div className="photo-band__bg" />
         <div className="photo-band__scrim" />
-        <div className="photo-band__content">
-          <h3>Every condition. Every market. Every season.</h3>
-          <p>Utility-scale operations across ERCOT, CAISO, and PJM</p>
-        </div>
       </section>
 
       {/* ===================== HOW IT WORKS ===================== */}
@@ -233,100 +235,63 @@ export default function Home() {
               consultant-designed<span className="green">.</span>
             </h2>
           </div>
-          <div className="cap-grid">
-            {CAPABILITIES.map((c) => (
-              <article
-                key={c.title}
-                className={`cap-card${c.wide ? " cap-card--wide" : ""}`}
-              >
-                {c.photo ? (
-                  <img className="cap-card__photo" src={c.photo} alt={c.alt} />
-                ) : null}
-                <div className="cap-card__body">
-                  <div className="cap-card__stat">
-                    <span className="cap-card__stat-val">{c.stat}</span>
-                    <span className="cap-card__stat-label">{c.statLabel}</span>
-                  </div>
-                  <h3 className="cap-card__title">{c.title}</h3>
-                  <p className="cap-card__blurb">{c.body}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+          {CAP_CLUSTERS.map((cluster) => (
+            <div className="cap-cluster" key={cluster.group}>
+              <h3 className="cap-cluster__head">{cluster.group}</h3>
+              <div className="cap-grid">
+                {cluster.cards.map((c) => (
+                  <article className="cap-card" key={c.title}>
+                    {c.photo ? (
+                      <img
+                        className="cap-card__photo"
+                        src={c.photo}
+                        alt={c.alt}
+                        loading="lazy"
+                      />
+                    ) : null}
+                    <div className="cap-card__body">
+                      <h4 className="cap-card__title">{c.title}</h4>
+                      <p className="cap-card__blurb">{c.body}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* ===================== WHY NOW ===================== */}
-      <section className="section">
+      <section id="why-now" className="section">
         <div className="container">
-          <div className="two-col reveal">
-            <div>
-              <p className="kicker">Why Now</p>
-              <h2 className="lead">
-                AI demand is repricing{" "}
-                <span
-                  style={{ fontStyle: "italic", color: "var(--green-light)" }}
-                >
-                  every
-                </span>{" "}
-                interconnected megawatt.
-              </h2>
-              <div className="body-copy">
-                <p>
-                  Datacenter load growth is creating unprecedented demand for
-                  dispatchable capacity. Interconnection queues are years deep.
-                  The fastest path to energized capacity isn&rsquo;t greenfield,
-                  it&rsquo;s recovering assets that are already built, already
-                  interconnected, and already failing to deliver.
-                </p>
-                <p>
-                  This market produces more distressed assets every cycle,
-                  because the industry builds faster than it can operate.
-                  Rootwork sits at the intersection: the intelligence to find
-                  them systematically, the operational capability to recover
-                  them, and a thesis that compounds with scale.
-                </p>
-              </div>
-            </div>
-
-            <div className="thesis-card">
-              <div className="thesis-card__head">The Compounding Thesis</div>
-              <div className="thesis-line">
-                <span className="thesis-line__mark" aria-hidden="true">
-                  &rarr;
-                </span>
-                More assets deployed &rarr; more operational failures
-              </div>
-              <div className="thesis-line">
-                <span className="thesis-line__mark" aria-hidden="true">
-                  &rarr;
-                </span>
-                More failures &rarr; deeper pool of distressed targets
-              </div>
-              <div className="thesis-line">
-                <span className="thesis-line__mark" aria-hidden="true">
-                  &rarr;
-                </span>
-                Every asset recovered &rarr; sharper intelligence
-              </div>
-              <div className="thesis-line">
-                <span className="thesis-line__mark" aria-hidden="true">
-                  &rarr;
-                </span>
-                Sharper intelligence &rarr; faster, cheaper acquisitions
-              </div>
-              <div className="thesis-line thesis-line--concl">
-                <span className="thesis-line__mark" aria-hidden="true">
-                  &there4;
-                </span>
-                AI load growth &rarr; interconnection queue premium rises
-              </div>
-              <div className="thesis-callout">
-                &ldquo;The moat isn&rsquo;t the data. It&rsquo;s the operator who
-                knows what the data means.&rdquo;
-              </div>
+          <div className="section-head reveal">
+            <p className="kicker">Why Now</p>
+            <h2 className="lead">
+              AI demand is repricing{" "}
+              <span style={{ fontStyle: "italic", color: "var(--green-light)" }}>
+                every
+              </span>{" "}
+              interconnected megawatt.
+            </h2>
+            <div className="body-copy">
+              <p>
+                Datacenter load growth is creating unprecedented demand for
+                dispatchable capacity. Interconnection queues are years deep. The
+                fastest path to energized capacity isn&rsquo;t greenfield,
+                it&rsquo;s recovering assets that are already built, already
+                interconnected, and already failing to deliver.
+              </p>
+              <p>
+                This market produces more distressed assets every cycle, because
+                the industry builds faster than it can operate. Rootwork sits at
+                the intersection: the intelligence to find them systematically,
+                the operational capability to recover them, and a thesis that
+                compounds with scale.
+              </p>
             </div>
           </div>
+
+          <ThesisFlywheel />
         </div>
       </section>
 
@@ -335,56 +300,35 @@ export default function Home() {
         <div className="container">
           <div className="two-col two-col--wide reveal">
             <div>
-              <p className="kicker">About</p>
+              <p className="kicker">Who We Are</p>
               <h2 className="lead">
-                Built in the field<span className="green">,</span> not in a
-                conference room<span className="green">.</span>
+                Built in the field<span className="green">.</span>
               </h2>
               <div className="body-copy">
                 <p>
-                  Rootwork Energy was founded by James Payne after a decade
-                  leading utility-scale BESS and renewables operations across the
-                  United States and Canada, from field technician to O&amp;M
-                  Director responsible for gigawatt-scale portfolios.
+                  Rootwork Energy was built on a decade of field experience across
+                  utility-scale BESS and renewables operations in the United
+                  States and Canada. The intelligence platform, the estimation
+                  tools, the operational playbooks: they&rsquo;re systematized
+                  versions of what the team learned commissioning, troubleshooting,
+                  and recovering assets that the original developers couldn&rsquo;t
+                  operate.
                 </p>
                 <p>
-                  That field experience is the irreplaceable input. The
-                  intelligence platform, the estimation tools, the operational
-                  playbooks, they&rsquo;re systematized versions of what was
-                  learned commissioning, troubleshooting, and recovering assets
-                  that the original developers couldn&rsquo;t operate.
-                </p>
-                <p>
-                  Rootwork exists because the gap between how assets are built
-                  and how they need to be run is growing, and bridging it
-                  requires someone who&rsquo;s done both.
+                  The company exists because the gap between how assets are built
+                  and how they need to be run keeps growing. Bridging it requires
+                  people who&rsquo;ve done both.
                 </p>
               </div>
             </div>
 
             <div className="about-facts">
-              <div className="fact">
-                <div className="fact__label">
-                  Years in utility-scale operations
+              {SCOPE.map((f) => (
+                <div className="fact" key={f.label}>
+                  <div className="fact__label">{f.label}</div>
+                  <div className="fact__val">{f.val}</div>
                 </div>
-                <div className="fact__val">10+</div>
-              </div>
-              <div className="fact">
-                <div className="fact__label">
-                  Prior: O&amp;M Director, RES Americas
-                </div>
-                <div className="fact__val">2018&ndash;2024</div>
-              </div>
-              <div className="fact">
-                <div className="fact__label">
-                  Prior: Operations Director, esVolta
-                </div>
-                <div className="fact__val">2024&ndash;2025</div>
-              </div>
-              <div className="fact">
-                <div className="fact__label">Headquarters</div>
-                <div className="fact__val">Texas</div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -396,19 +340,23 @@ export default function Home() {
           <div className="investors__inner reveal">
             <p className="kicker">For Capital Partners</p>
             <h2>
-              The thesis is fundable.
+              A thesis built on data.
               <br />
-              <span className="dim">The operator is proven.</span>
+              <span className="dim">A team built on operations.</span>
             </h2>
             <p className="investors__body">
-              Rootwork is raising capital to acquire its first tranche of
-              interconnection-capable BESS assets at distressed valuations,
-              targets identified through proprietary intelligence with clear,
-              field-validated repower pathways. We welcome conversations with
-              capital partners who understand that the best energy acquisitions
-              start with the best information.
+              The screen already covers 21 GW of interconnected storage and has
+              flagged $244M in annual revenue at risk across underperforming
+              assets. That is the origination pipeline: interconnection-capable
+              BESS available at distressed valuations, each with a field-validated
+              repower path.
             </p>
-            <a href="mailto:james@rootwork.energy" className="btn btn--primary">
+            <p className="investors__body">
+              Rootwork is raising to acquire its first tranche. If the thesis fits
+              your mandate, the next step is a 30-minute call, where we walk the
+              current pipeline view and where you would come in.
+            </p>
+            <a href={`mailto:${EMAIL}`} className="btn btn--primary">
               Start a Conversation <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
