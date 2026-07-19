@@ -1,31 +1,27 @@
 "use client";
 import { useState } from "react";
 
+// Canon model: Screen -> Acquire -> Repower -> Operate and Hold.
 const NODES = [
   {
     label: "Screen",
     short: "See distress before the market does",
-    text: "Continuous ingestion of fleet data, ISO dispatch patterns, and public filings, cross-referenced against independently derived performance benchmarks. We identify the gap between what an asset should earn in its market and what it actually delivers. That gap is the signal.",
-  },
-  {
-    label: "Underwrite",
-    short: "Price the recovery, not the broker's story",
-    text: "Every target is modeled against real recovery cost and timeline, not the seller's narrative. Construction estimation is parametric and field-validated. Repower economics are stress-tested against the dispatch environment the asset actually sits in, not the one in the IM.",
+    text: "Our proprietary intelligence platform continuously scans fleet-wide performance data to identify assets whose real output diverges from reported metrics. We find what the market has not yet priced.",
   },
   {
     label: "Acquire",
-    short: "Move on targets before they're marketed",
-    text: "Because the intelligence layer identifies candidates independently, Rootwork engages owners directly, often before a formal sale process begins. The result is better pricing, cleaner deal structure, and no competitive auction dynamics.",
+    short: "Buy the queue position competitors cannot rebuild",
+    text: "We acquire interconnection-capable assets at distressed valuations, operating facilities with queue positions that cannot be rebuilt from scratch. The queue is the asset.",
   },
   {
     label: "Repower",
-    short: "Fix what's actually broken",
-    text: "A decade of utility-scale BESS commissioning and O&M. Every repower plan is built from direct equipment-level diagnosis: PCS behavior, thermal management, BMS configuration, protection coordination. Not consultant reports.",
+    short: "Recover lost capacity, not rebuild",
+    text: "Proprietary repower execution recovers lost capacity through targeted intervention across chemistry, controls, inverter hardware, and dispatch optimization. Not a rebuild. A recovery.",
   },
   {
-    label: "Operate & Hold",
+    label: "Operate and Hold",
     short: "Intelligence compounds with every asset",
-    text: "Continuous performance monitoring, NERC compliance, and revenue optimization. Every asset operated feeds data back into the screening layer, sharpening the next acquisition. The platform gets smarter with scale.",
+    text: "We hold long-term for the cash flows and the compounding intelligence. Every asset operated deepens the data layer, sharpens the screen, and widens the moat.",
   },
 ];
 
@@ -67,7 +63,7 @@ export default function LifecycleNavigator() {
             />
           ))}
         </div>
-        <div className="lc-progress__label">Each stage feeds data forward.</div>
+        <div className="lc-progress__label">Each stage feeds the next.</div>
       </div>
     </div>
   );

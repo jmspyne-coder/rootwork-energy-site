@@ -11,5 +11,6 @@ export const EMAIL = "info@rootwork.energy";
 export const NAV = [
   { href: "#intelligence", label: "Intelligence" },
   { href: "#capabilities", label: "Capabilities" },
+  { href: "#why-now", label: "Why Now" },
   { href: "#about", label: "About" },
 ];

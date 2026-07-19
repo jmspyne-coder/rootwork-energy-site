@@ -14,13 +14,13 @@ import { GA_ID } from "./site-config";
 
 export const metadata = {
   metadataBase: new URL("https://rootwork.energy"),
-  title: "Rootwork Energy · Operator-Led. Intelligence-Driven.",
+  title: "Rootwork Energy · Operator-led. Built to recover.",
   description:
-    "Rootwork Energy builds independent performance intelligence on the utility-scale storage fleet, identifying assets underdelivering relative to their market. We acquire them at distressed valuations, repower them with field-proven operations, and hold long term as an IPP.",
+    "Rootwork Energy is an operator-led independent power producer. We screen the utility-scale storage fleet for assets bleeding value, acquire them at distressed valuations, repower them through proprietary execution, and hold long term as an IPP.",
   openGraph: {
-    title: "Rootwork Energy",
+    title: "Rootwork Energy · Operator-led. Built to recover.",
     description:
-      "Independent performance intelligence on the utility-scale storage fleet. Acquire underperforming assets, repower them, hold long term as an IPP.",
+      "We find the assets bleeding value, and recover them. Screen, acquire, repower, and hold utility-scale storage as an operator-led IPP.",
     url: "https://rootwork.energy",
     siteName: "Rootwork Energy",
     type: "website",

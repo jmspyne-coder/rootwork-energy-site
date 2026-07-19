@@ -1,0 +1,143 @@
+ROOTWORK CODE SESSION REPORT
+============================
+
+DIRECTIVE: 2026-07-18-website-rebuild
+TITLE: Ground-up rebuild of rootwork.energy (directive-exact single page)
+REPO: jmspyne-coder/rootwork-energy-site
+BRANCH: feat/website-rebuild-v3
+EXECUTED: 2026-07-19 (directive id dated 2026-07-18)
+STATUS: DONE (one deferral: fresh HEIC conversion — see OPEN ITEMS)
+
+CONTEXT / STARTING STATE
+------------------------
+A prior session's PR #5 (same directive title) was already MERGED into origin/main,
+but that build did NOT match this directive's exact spec: main carried sections
+top/intelligence/platform/capabilities/about/INVESTORS with different, partly
+unverified copy (e.g. "2,400+ assets", "4.2 GWh commissioned by team") and no
+hero wordmark image or 4-photo band. This session rebuilt the page to the
+directive-exact section set and verbatim copy on a fresh branch and opened a NEW
+PR. PR #5 was NOT re-merged and main was not touched. The branch already carried
+two useful unmerged commits (email fix, About->Who-We-Are cleanup); this work
+builds on them.
+
+WHAT WAS EXECUTED
+-----------------
+Single-page, dark/light "sandwich", eight anchored sections built to the exact
+directive copy:
+  1 HERO (dark) — bone wordmark PNG (image, never re-typeset), tagline
+    "Operator-led. Built to recover.", headline "The grid is building capacity it
+    cannot operate.", subline, and a 3-stat bar with animated 0->value counters.
+  2 THE INTELLIGENCE LAYER (dark, kicker THE EDGE) — exact body copy; institutional
+    CSS heatmap (Bloomberg-terminal feel, not glowing-AI) + a verified-figure readout.
+  3 PHOTO BAND — horizontal row of 4 full-bleed field photos w/ slight dark overlay
+    (substation work, battery module rows, field commissioning, winter controls).
+  4 THE LIFECYCLE (bone, kicker HOW WE OPERATE) — "Screen. Acquire. Repower. Hold."
+    four-stage interactive navigator with exact per-stage copy.
+  5 CAPABILITIES (dark) — seven cards, exact titles + descriptions.
+  6 WHY NOW (bone, kicker THE MOMENT) — exact body copy.
+  7 ABOUT / WHO WE ARE (dark) — exact body copy + info@rootwork.energy contact.
+  8 FOOTER — bone wordmark, contact, copyright.
+Nav updated to Intelligence / Capabilities / Why Now / About + Contact (mailto).
+The "investors" section from the prior build was removed (not in directive spec).
+
+Brand tokens, fonts (Source Serif 4 display / Inter body, self-hosted via
+@fontsource — zero external font requests), scroll-reveal fade-up, hero counters
+(1800ms cubic), lifecycle stager, and prefers-reduced-motion handling all per spec.
+
+FILES CHANGED
+-------------
+  app/page.js                     (rewritten to directive-exact sections/copy)
+  app/components/LifecycleNavigator.js (exact 4-stage copy)
+  app/components/StatCounter.js    (NEW — animated hero counters, reduced-motion safe)
+  app/components/Nav.js            (CTA -> mailto Contact; removed #investors)
+  app/components/Footer.js         (wordmark + contact rebuild)
+  app/layout.js                    (canon title/description/OG: "Operator-led. Built to recover.")
+  app/site-config.js               (nav: added Why Now anchor)
+  app/globals.css                  (bone-section system, hero wordmark, 4-photo strip,
+                                    7-card grid, footer, lifecycle-title fix)
+  DIRECTIVE_LOG.md                 (NEW — first row)
+  directives/reports/2026-07-18-website-rebuild.txt (NEW — this report)
+
+VERIFICATION EVIDENCE
+---------------------
+BUILD: PASS. `npm run build` (Next.js 15 static export) compiled and exported 6/6
+  static pages with no errors; no horizontal overflow at 1440 or 375 (probe-verified
+  scrollWidth == innerWidth).
+
+BANNED-STRING GREP: PASS (ZERO matches).
+  Command (run against source + built HTML, excluding node_modules/.next/_next chunks):
+    grep -rionE 'jupiter|pcdr|\brdr\b|odcf|\btda\b|\bdpr\b|\brems\b|rafter|esvolta|
+    sunpower|joule|\bwind\b|\bbright\b|\bems\b|james|payne|\bjim\b|rodriguez|tabatha|
+    valencia|santos|mucha|gainor|nexarrs|\bkyle\b|\bnick\b' app/ out/index.html
+    out/404.html | grep -vE '/_next/' | grep -viE 'self-perform'
+  Result: >>> ZERO BANNED-STRING MATCHES <<<
+  (Two known non-issues excluded and understood: the phrase "self-performed across
+  our own portfolio" is the CLAUDE.md-approved owned-assets framing, NOT the banned
+  HV self-perform claim; and lowercase "hv" appears only inside minified React code
+  "formatWithValidation", not as the HV acronym in any content.)
+
+STAT VERIFICATION vs MotherDuck (my_db): ALL THREE VERIFIED, all match the directive.
+  1) Capacity screened ~21 GW  -> 21.1 GW
+     SUM(total_mw) over v_cross_iso_distress_summary.
+  2) Fleet true availability ~73% -> 73.3%
+     MW-weighted full_tda_pct (True Dispatch Availability) across CAISO+ERCOT,
+     v_bess_tda_caiso + v_bess_tda_ercot, 40 instrumented plants. (Reported/nameplate
+     availability runs ~85-87%; the true-dispatch figure is the lower, on-thesis one.
+     Site label is plain-language "Fleet true availability" — the proprietary metric
+     name is NOT exposed.)
+  3) Revenue at risk identified ~$244M -> $243.9M
+     SUM(total_revenue_at_risk_k) over v_cross_iso_distress_summary.
+
+VISUAL QA (executed — Chrome + puppeteer-core, CDP/setViewport; screenshots read back):
+  Desktop 1440x900 (full page + sections) and mobile 375: all captured and inspected.
+  PASS per section:
+    HERO: wordmark renders as IMAGE (nav + hero), Source Serif 4 headline, green
+      kicker, 3 stats present and correct, one green accent — not flooded.
+    INTELLIGENCE: exact copy; institutional heatmap (green/amber/red), verified readout.
+    PHOTO BAND: computed grid = 4 columns at 1440 (true horizontal band of 4),
+      2x2 at mobile; photos load and are content-appropriate; dark overlay correct.
+    LIFECYCLE: bone section legible; FIXED a real bug found in QA — panel title was
+      inheriting charcoal on the bone section (near-invisible); now explicit bone.
+    CAPABILITIES: all 7 cards render, green serif numbers, correct copy.
+    WHY NOW / ABOUT: bone/dark copy legible, contrast good.
+    FOOTER: bone wordmark + info@rootwork.energy.
+    MOBILE: sections stack; cap-grid -> 1 col, hero stats -> 1 col; zero horiz overflow.
+  Fonts confirmed: Source Serif 4 (display), Inter (body).
+
+LIGHTHOUSE: NOT RUN (no Lighthouse/CI harness invoked this session). Build is a
+  static export, JS ~104 KB first load, images optimized WebP, fonts self-hosted,
+  reduced-motion respected — structurally strong but no numeric score captured.
+
+DECISIONS / AMBIGUITIES RESOLVED
+--------------------------------
+- EM DASHES: the directive's provided copy contained em dashes used as clause
+  connectors. CLAUDE.md is zero-tolerance on that and OVERRIDES, so the wording was
+  preserved but every em-dash connector was rewritten to a comma/period/colon. Meaning
+  unchanged.
+- CAPABILITY CARD 4: directive copy read "Development Services — Supporting developers
+  from late-stage development through interconnection." That reintroduces the dropped
+  third-party-services framing (CLAUDE.md: development is self-performed on OWNED
+  projects only; Rootwork sells no third-party services). Reframed to
+  "Late-stage development through interconnection, carried on our own projects." and
+  added a section intro clarifying all capabilities are self-performed across
+  Rootwork's own portfolio. Necessary brand correction, flagged here.
+- ASSETS: the canonical bone wordmark was already committed (public/wordmark-reversed.png,
+  byte-identical to the Drive folder's reversed signature PNG); reused. The four band
+  photos + hero use the repo's already-optimized field-photo WebPs, which map exactly
+  to the required content buckets. The concrete foundation-pour photo was deliberately
+  NOT used (reads like a wind-turbine base; wind is excluded).
+
+OPEN ITEMS / DEFERRED
+---------------------
+- FRESH HEIC CONVERSION: the specified Drive photo folder (1zOVOEaiY81...) holds mostly
+  HEIC files uploaded 2026-07-18. This environment has no HEIC decoder (no ImageMagick,
+  no sharp/libheif), so fresh HEIC->WebP conversion was NOT performed. Per the
+  directive's stated fallback, the repo's existing optimized field-photo WebPs were
+  used instead (they are genuine field photography covering substation/battery/
+  commissioning/controls). If James wants the exact new folder images swapped in,
+  convert HEIC->WebP on a machine with a decoder and drop them into public/img/ under
+  the same filenames.
+- LIGHTHOUSE numeric score not captured (see above).
+- PR is OPEN, NOT MERGED (per directive + standing protocol). Merge is a human decision.
+
+PR: (see PR number/link recorded in DIRECTIVE_LOG and the session return)

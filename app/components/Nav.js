@@ -35,8 +35,8 @@ export default function Nav() {
               {l.label}
             </a>
           ))}
-          <a href="#investors" className="nav__cta" onClick={close}>
-            Capital Partners
+          <a href="mailto:info@rootwork.energy" className="nav__cta" onClick={close}>
+            Contact
           </a>
         </nav>
 
