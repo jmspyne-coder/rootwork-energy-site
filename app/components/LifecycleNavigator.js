@@ -8,14 +8,9 @@ const NODES = [
     text: "Continuous ingestion of fleet data, ISO dispatch patterns, and public filings, cross-referenced against independently derived performance benchmarks. We identify the gap between what an asset should earn in its market and what it actually delivers. That gap is the signal.",
   },
   {
-    label: "Underwrite",
-    short: "Price the recovery, not the broker's story",
-    text: "Every target is modeled against real recovery cost and timeline, not the seller's narrative. Construction estimation is parametric and field-validated. Repower economics are stress-tested against the dispatch environment the asset actually sits in, not the one in the IM.",
-  },
-  {
     label: "Acquire",
-    short: "Move on targets before they're marketed",
-    text: "Because the intelligence layer identifies candidates independently, Rootwork engages owners directly, often before a formal sale process begins. The result is better pricing, cleaner deal structure, and no competitive auction dynamics.",
+    short: "Price the recovery, move before the market does",
+    text: "Every target is modeled against real recovery cost and timeline, not the seller's narrative, with parametric field-validated construction estimation and repower economics stress-tested against the dispatch environment the asset actually sits in. Because the intelligence layer surfaces candidates independently, Rootwork engages owners directly, often before a formal sale process begins, for better pricing and cleaner structure.",
   },
   {
     label: "Repower",
