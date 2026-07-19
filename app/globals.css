@@ -114,7 +114,7 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
-  align-items: start;
+  align-items: center;
 }
 .two-col--wide {
   grid-template-columns: 2fr 1fr;
@@ -874,11 +874,6 @@ img {
 /* ============================================================
    HERO WORDMARK (PNG, never re-typeset)
    ============================================================ */
-.hero__wordmark {
-  height: 46px;
-  width: auto;
-  margin-bottom: 34px;
-}
 
 /* ============================================================
    BONE (LIGHT) SANDWICH SECTIONS

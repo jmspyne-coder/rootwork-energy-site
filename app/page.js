@@ -68,13 +68,6 @@ export default function Home() {
         <div className="hero__scrim" />
         <div className="hero__inner">
           <div className="container">
-            <img
-              src="/wordmark-reversed.png"
-              alt="Rootwork Energy"
-              className="hero__wordmark"
-              width={700}
-              height={167}
-            />
             <p className="kicker">
               <span className="pulse" />
               Operator-led. Built to recover.
