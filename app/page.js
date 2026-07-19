@@ -1,43 +1,53 @@
 import LifecycleNavigator from "./components/LifecycleNavigator";
 import Heatmap from "./components/Heatmap";
 import StatCounter from "./components/StatCounter";
+import Flywheel from "./components/Flywheel";
 
 // Operating capabilities, self-performed across Rootwork's own portfolio.
-const CAPABILITIES = [
+// Grouped to the lifecycle spine: Screen & Acquire, Repower, Operate & Hold.
+const CAPABILITY_GROUPS = [
   {
-    n: "1",
-    title: "Acquisition and Origination",
-    body: "Intelligence-led sourcing of distressed and underperforming energy assets.",
+    stage: "Screen & Acquire",
+    cards: [
+      {
+        title: "Acquisition and Origination",
+        body: "Intelligence-led sourcing of distressed and underperforming energy assets.",
+      },
+      {
+        title: "Development Services",
+        body: "Late-stage development through interconnection, carried on our own projects.",
+      },
+    ],
   },
   {
-    n: "2",
-    title: "Commissioning Management",
-    body: "Full-scope project commissioning from NTP through COD.",
+    stage: "Repower",
+    cards: [
+      {
+        title: "Commissioning Management",
+        body: "Full-scope project commissioning from NTP through COD.",
+      },
+      {
+        title: "Asset Recovery",
+        body: "Proprietary repower execution for underperforming facilities.",
+      },
+    ],
   },
   {
-    n: "3",
-    title: "Operations and Maintenance",
-    body: "Preventive, predictive, and corrective O&M for utility-scale storage and renewables.",
-  },
-  {
-    n: "4",
-    title: "Development Services",
-    body: "Late-stage development through interconnection, carried on our own projects.",
-  },
-  {
-    n: "5",
-    title: "Asset Recovery",
-    body: "Proprietary repower execution for underperforming facilities.",
-  },
-  {
-    n: "6",
-    title: "Dispatch Optimization",
-    body: "Revenue maximization through informed dispatch strategy.",
-  },
-  {
-    n: "7",
-    title: "Compliance and Regulatory",
-    body: "NERC GO/GOP compliance program development and management.",
+    stage: "Operate & Hold",
+    cards: [
+      {
+        title: "Operations and Maintenance",
+        body: "Preventive, predictive, and corrective O&M for utility-scale storage and renewables.",
+      },
+      {
+        title: "Dispatch Optimization",
+        body: "Revenue maximization through informed dispatch strategy.",
+      },
+      {
+        title: "Compliance and Regulatory",
+        body: "NERC GO/GOP compliance program development and management.",
+      },
+    ],
   },
 ];
 
@@ -222,15 +232,24 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="cap-grid cap-grid--seven">
-            {CAPABILITIES.map((c) => (
-              <article key={c.title} className="cap-card">
-                <div className="cap-card__body">
-                  <span className="cap-card__num">{c.n}</span>
-                  <h3 className="cap-card__title">{c.title}</h3>
-                  <p className="cap-card__blurb">{c.body}</p>
+          <div className="cap-clusters">
+            {CAPABILITY_GROUPS.map((group) => (
+              <div key={group.stage} className="cap-cluster">
+                <div className="cap-cluster__head">
+                  <span className="cap-cluster__mark" aria-hidden="true" />
+                  <h3 className="cap-cluster__title">{group.stage}</h3>
                 </div>
-              </article>
+                <div className="cap-cluster__grid">
+                  {group.cards.map((c) => (
+                    <article key={c.title} className="cap-card">
+                      <div className="cap-card__body">
+                        <h4 className="cap-card__title">{c.title}</h4>
+                        <p className="cap-card__blurb">{c.body}</p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -268,6 +287,14 @@ export default function Home() {
                 because this moment requires operators, not just capital.
               </p>
             </div>
+          </div>
+
+          <div className="flywheel-block reveal">
+            <p className="flywheel-block__lead">
+              And the advantage compounds. Every asset we operate feeds the screen
+              that finds the next one.
+            </p>
+            <Flywheel />
           </div>
         </div>
       </section>
